@@ -1,9 +1,9 @@
 ---
 name: Issue Template
 about: 이슈 생성 템플릿
-title: 'feat: '
+title: "feat: "
 labels: ✨ Feature
-assignees: ''
+assignees: ""
 ---
 
 ## 📄 설명
