@@ -1,7 +1,8 @@
+ 
 export interface Part {
-  selector: string;
+  selector: string
 }
 
 export interface Parts {
-  [key: string]: Part;
+  [key: string]: Part
 }
