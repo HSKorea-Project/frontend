@@ -1,6 +1,6 @@
 import { css } from "@/styled-system/css";
 import { InputHTMLAttributes } from "react";
-import Icon from "../Icon/Icon";
+import Icon from "@/components/ui/Icon/Icon";
 
 // Input props 타입 정의
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
