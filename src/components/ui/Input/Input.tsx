@@ -32,8 +32,8 @@ export default function Input({ label, required, error, ...props }: InputProps) 
             flexDirection: "row",
             gap: "4px",
             fontSize: {
-              base: "12px",
-              md: "14px",
+              base: "14px",
+              md: "16px",
             },
             fontWeight: "medium",
             color: "gray.800",
@@ -72,7 +72,7 @@ export default function Input({ label, required, error, ...props }: InputProps) 
             base: "6px",
             md: "8px",
           },
-          border: "1px solid",
+          border: "1.5px solid",
           borderColor: error ? "red.500" : "gray.300",
 
           outline: "none",
@@ -87,7 +87,7 @@ export default function Input({ label, required, error, ...props }: InputProps) 
 
           _focus: {
             borderColor: error ? "red.500" : "green.500",
-            outline: error ? "" : "green.100",
+            boxShadow: error ? "0 0 0 3px rgba(224,82,82,0.2)" : "0 0 0 3px rgba(46,158,97,0.2)",
           },
         })}
       />
