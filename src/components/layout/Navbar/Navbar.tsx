@@ -7,14 +7,18 @@ import Link from "next/link";
 import Button from "@/components/ui/Button/Button";
 import Icon from "@/components/ui/Icon/Icon";
 
+interface NavbarProps {
+  className?: string;
+}
+
 // Navbar 컴포넌트
-export default function Navbar() {
+export default function Navbar({ className }: NavbarProps) {
   const [open, setOpen] = useState(false);
 
   return (
     <>
       <nav
-        className={css({
+        className={`${css({
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
@@ -25,7 +29,9 @@ export default function Navbar() {
           py: "16px",
           borderBottom: "1px solid",
           borderColor: "gray.200",
-        })}
+          bg: "white",
+        })} 
+        ${className}`}
       >
         {/* 로고 */}
         <span
@@ -83,7 +89,7 @@ export default function Navbar() {
               서비스소개
             </Link>
             <Link
-              href="/inquire"
+              href="/inquiry"
               className={css({
                 paddingX: "3",
                 paddingY: "2",
@@ -99,7 +105,7 @@ export default function Navbar() {
           </div>
         </div>
         <Link
-          href="/estimate"
+          href="/inquiry/new"
           className={css({
             display: { base: "none", md: "block" },
           })}
