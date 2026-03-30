@@ -24,7 +24,7 @@ export default function CheckBox({ size = 20, checked }: CheckBoxProps) {
         bg: checked ? "green.500" : "",
       })}
     >
-      {checked && <Icon name="check" size={size} />}
+      {checked && <Icon name="check" />}
     </div>
   );
 }
