@@ -1,14 +1,31 @@
 import { css } from "@/styled-system/css";
 
+type IconSize = "sm" | "md" | "lg";
+
+const sizeMap = {
+  sm: {
+    base: "12px",
+    md: "14px",
+  },
+  md: {
+    base: "14px",
+    md: "16px",
+  },
+  lg: {
+    base: "16px",
+    md: "20px",
+  },
+};
+
 // Icon Props 타입 정의
 interface IconProps {
   name: string;
-  size?: number;
+  size?: IconSize;
   className?: string;
 }
 
 // Icon 컴포넌트
-export default function Icon({ name, size = 14, className }: IconProps) {
+export default function Icon({ name, size = "md", className }: IconProps) {
   return (
     <img
       src={`/${name}.svg`}
@@ -17,15 +34,8 @@ export default function Icon({ name, size = 14, className }: IconProps) {
         display: "inline-block",
         flexShrink: 0,
 
-        // 반응형 사이즈
-        width: {
-          base: `${size - 2}px`, // 모바일
-          md: `${size}px`, // 데스크탑
-        },
-        height: {
-          base: `${size - 2}px`,
-          md: `${size}px`,
-        },
+        width: sizeMap[size],
+        height: sizeMap[size],
       })} ${className || ""}`}
     />
   );
