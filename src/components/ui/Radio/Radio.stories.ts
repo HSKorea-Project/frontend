@@ -2,7 +2,7 @@ import { Meta, StoryObj } from "@storybook/nextjs-vite";
 import Radio from "./Radio";
 
 const meta: Meta<typeof Radio> = {
-  title: "UI/RadioGroup",
+  title: "UI/Radio",
   component: Radio,
   tags: ["autodocs"],
 };
