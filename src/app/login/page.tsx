@@ -1,9 +1,5 @@
-import Button from "@/components/ui/Button/Button";
+import Navbar from "@/components/layout/Navbar/Navbar";
 
 export default function Page() {
-  return (
-    <div>
-      <Button>견적문의</Button>
-    </div>
-  );
+  return <div></div>;
 }
