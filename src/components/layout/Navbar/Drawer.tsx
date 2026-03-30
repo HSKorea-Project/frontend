@@ -120,7 +120,7 @@ export default function Drawer({ open, onClose }: DrawerProps) {
             서비스소개
           </Link>
           <Link
-            href="/inquire"
+            href="/inquiry"
             className={css({
               p: "16px",
               _hover: {
@@ -134,7 +134,7 @@ export default function Drawer({ open, onClose }: DrawerProps) {
         </div>
 
         {/* 버튼 */}
-        <Link href="/estimate" className={css({ width: "100%", paddingX: "16px" })}>
+        <Link href="/inquiry/new" className={css({ width: "100%", paddingX: "16px" })}>
           <Button fullWidth={true}>견적문의</Button>
         </Link>
       </div>
