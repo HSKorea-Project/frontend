@@ -6,6 +6,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
   variant?: "primary" | "secondary" | "outline"; // 스타일 유형
   fullWidth?: boolean;
+  className?: string;
 }
 
 // 버튼 컴포넌트
@@ -14,12 +15,13 @@ export default function Button({
   variant = "primary",
   disabled,
   fullWidth = false,
+  className,
   ...props
 }: ButtonProps) {
   return (
     <button
       disabled={disabled}
-      className={css({
+      className={`${css({
         width: fullWidth ? "100%" : "auto",
         px: "4",
         py: "2",
@@ -60,7 +62,7 @@ export default function Button({
             bg: "gray.400",
           },
         }),
-      })}
+      })} ${className}`}
       {...props}
     >
       {children}

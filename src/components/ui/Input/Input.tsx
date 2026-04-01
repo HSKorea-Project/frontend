@@ -60,10 +60,7 @@ export default function Input({ label, required, error, ...props }: InputProps) 
             base: "12px",
             md: "16px",
           },
-          py: {
-            base: "10px",
-            md: "12px",
-          },
+          py: "10px",
           fontSize: {
             base: "14px",
             md: "16px",
