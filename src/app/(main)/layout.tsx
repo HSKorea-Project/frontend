@@ -22,6 +22,8 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
           display: "flex",
           flex: 1,
           overflow: "auto",
+
+          bg: "gray.50",
         })}
       >
         {children}
