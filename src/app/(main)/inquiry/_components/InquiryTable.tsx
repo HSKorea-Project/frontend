@@ -42,8 +42,20 @@ export default function InquiryTable({ data }: InquiryTableProps) {
           })}
         >
           <TableRow>
-            <TableCell>No.</TableCell>
-            <TableCell>고객사명</TableCell>
+            <TableCell
+              className={css({
+                width: "94px",
+              })}
+            >
+              No.
+            </TableCell>
+            <TableCell
+              className={css({
+                width: "250px",
+              })}
+            >
+              고객사명
+            </TableCell>
             <TableCell>고객명</TableCell>
             <TableCell>서비스 유형</TableCell>
             <TableCell>이사 예정일</TableCell>
