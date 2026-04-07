@@ -7,10 +7,14 @@ import { useState } from "react";
 import { InquiryItem } from "./_types/inquiry";
 import Pagination from "./_components/Pagination";
 import { inquiryMockData } from "@/constants/mocks/InquiryMockData";
+import { useIsMobile } from "@/hooks/useIsMobile";
+import InquiryCard from "./_components/InquiryCard";
 
 // 문의내역
 export default function InquiryListPage() {
   const ITEMS_PER_PAGE = 10;
+
+  const isMobile = useIsMobile();
 
   const [search, setSearch] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
@@ -34,7 +38,7 @@ export default function InquiryListPage() {
       className={css({
         width: "100%",
         display: "grid",
-        gridTemplateColumns: "1fr minmax(300px, 1052px) 1fr",
+        gridTemplateColumns: "minmax(20px, 1fr) minmax(300px, 1052px) minmax(20px, 1fr)",
       })}
     >
       <div />
@@ -43,15 +47,18 @@ export default function InquiryListPage() {
         className={css({
           display: "flex",
           flexDirection: "column",
-          rowGap: "28px",
+          rowGap: isMobile ? "8px" : "28px",
           paddingY: "48px",
+          paddingX: isMobile ? "18px" : "",
         })}
       >
         <div
           className={css({
             display: "flex",
-            justifyContent: "space-between",
-            alignItems: "end",
+            flexDirection: isMobile ? "column" : "row",
+            justifyContent: isMobile ? "" : "space-between",
+            alignItems: isMobile ? "" : "end",
+            rowGap: "14px",
           })}
         >
           {/* 제목 */}
@@ -91,13 +98,23 @@ export default function InquiryListPage() {
         </div>
 
         {/* 문의내역 목록 */}
-        <div
-          className={css({
-            height: "535px",
-          })}
-        >
-          <InquiryTable data={paginatedData} />
-        </div>
+        {isMobile ? (
+          // 모바일: 카드 형식
+          <>
+            {paginatedData.map((item) => (
+              <InquiryCard key={item.id} item={item} />
+            ))}
+          </>
+        ) : (
+          // 데스크탑: Table
+          <div
+            className={css({
+              height: "535px",
+            })}
+          >
+            <InquiryTable data={paginatedData} />
+          </div>
+        )}
 
         {/* 페이지네이션 */}
         <div
@@ -105,6 +122,7 @@ export default function InquiryListPage() {
             width: "100%",
             display: "flex",
             justifyContent: "center",
+            paddingTop: isMobile ? "20px" : "",
           })}
         >
           <Pagination currentPage={currentPage} totalPages={totalPages} onChange={setCurrentPage} />
