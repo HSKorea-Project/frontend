@@ -1,6 +1,8 @@
 import { css } from "@/styled-system/css";
 import { InquiryItem } from "../_types/inquiry";
 import Badge from "@/components/ui/Badge/Badge";
+import { useMaskedName } from "@/utils/maskName";
+import { useRouter } from "next/navigation";
 
 interface InquiryCardProps {
   item: InquiryItem;
@@ -8,8 +10,17 @@ interface InquiryCardProps {
 
 // 문의내역 목록 카드
 export default function InquiryCard({ item }: InquiryCardProps) {
+  const router = useRouter();
+  const { maskName } = useMaskedName();
+
+  // 문의글 비밀번호 입력 페이지로 이동
+  const handleClick = (id: number) => {
+    router.push(`/inquiry/password/${id}`);
+  };
+
   return (
     <div
+      onClick={() => handleClick(item.id)}
       className={css({
         width: "100%",
 
@@ -99,7 +110,7 @@ export default function InquiryCard({ item }: InquiryCardProps) {
             fontSize: "12px",
           })}
         >
-          {item.customerName}
+          {maskName(item.customerName)}
         </p>
       </div>
       <div
