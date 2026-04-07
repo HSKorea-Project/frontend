@@ -7,6 +7,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "primary" | "secondary" | "outline"; // 스타일 유형
   fullWidth?: boolean;
   className?: string;
+  onClick?: () => void;
 }
 
 // 버튼 컴포넌트
@@ -16,10 +17,12 @@ export default function Button({
   disabled,
   fullWidth = false,
   className,
+  onClick,
   ...props
 }: ButtonProps) {
   return (
     <button
+      onClick={onClick}
       disabled={disabled}
       className={`${css({
         width: fullWidth ? "100%" : "auto",
@@ -46,7 +49,7 @@ export default function Button({
         }),
 
         ...(variant === "outline" && {
-          bg: "transparent",
+          bg: "white",
           border: "1px solid",
           borderColor: "gray.300",
           color: "gray.700",
