@@ -1,5 +1,6 @@
 import Button from "@/components/ui/Button/Button";
 import Icon from "@/components/ui/Icon/Icon";
+import { useIsMobile } from "@/hooks/useIsMobile";
 import { css } from "@/styled-system/css";
 import { ChangeEvent } from "react";
 
@@ -11,6 +12,8 @@ interface InquirySearchBarProps {
 
 // 검색바 컴포넌트
 export default function InquirySearchBar({ value, onChange }: InquirySearchBarProps) {
+  const isMobile = useIsMobile();
+
   // 검색 입력 이벤트 핸들러
   const handleInput = (e: ChangeEvent<HTMLInputElement>) => {
     onChange(e.target.value);
@@ -23,6 +26,7 @@ export default function InquirySearchBar({ value, onChange }: InquirySearchBarPr
         border: "1.5px solid",
         borderColor: "gray.300",
         borderRadius: "6px",
+        width: isMobile ? "100%" : "",
         height: "fit",
         maxHeight: "40px",
       })}
@@ -33,6 +37,7 @@ export default function InquirySearchBar({ value, onChange }: InquirySearchBarPr
         placeholder="고객사명 또는 고객명 검색"
         className={css({
           minWidth: "200px",
+          width: isMobile ? "100%" : "",
           padding: "12px 14px",
           color: "gray.600",
           fontSize: {
