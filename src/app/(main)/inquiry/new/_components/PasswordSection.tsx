@@ -17,6 +17,9 @@ export default function PasswordSection({
   confirmPassword,
   setConfirmPassword,
 }: PasswordProps) {
+  const isPwError = password.length > 0 && password.length < 4;
+  const isConfirmPwError = confirmPassword.length > 0 && password !== confirmPassword;
+
   return (
     <Card title="게시물 비밀번호" icon="password">
       <p
@@ -41,17 +44,25 @@ export default function PasswordSection({
       >
         <Input
           value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          onChange={(e) => {
+            setPassword(e.target.value);
+          }}
+          type="password"
           label="비밀번호"
           required
           placeholder="비밀번호를 입력하세요"
+          error={isPwError ? "비밀번호는 최소 4자리 이상이어야 합니다." : undefined}
         />
         <Input
           value={confirmPassword}
-          onChange={(e) => setConfirmPassword(e.target.value)}
+          onChange={(e) => {
+            setConfirmPassword(e.target.value);
+          }}
+          type="password"
           label="비밀번호 확인"
           required
           placeholder="비밀번호를 다시 입력하세요"
+          error={isConfirmPwError ? "비밀번호가 일치하지 않습니다." : undefined}
         />
       </div>
     </Card>
