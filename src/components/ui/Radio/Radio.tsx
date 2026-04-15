@@ -16,7 +16,7 @@ export default function Radio({ checked, label, onClick }: RadioProps) {
       className={css({
         display: "flex",
         alignItems: "center",
-        gap: "6px",
+        gap: "8px",
         cursor: "pointer",
       })}
     >
@@ -48,7 +48,7 @@ export default function Radio({ checked, label, onClick }: RadioProps) {
       {/* 텍스트 */}
       <span
         className={css({
-          fontSize: "16px",
+          fontSize: "12px",
           color: "gray.700",
         })}
       >

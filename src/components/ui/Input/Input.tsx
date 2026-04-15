@@ -19,8 +19,8 @@ export default function Input({ label, required, error, ...props }: InputProps) 
         textAlign: "left",
         width: "100%",
         gap: {
-          base: "6px",
-          md: "8px",
+          base: "8px",
+          // md: "8px",
         },
       })}
     >
@@ -32,11 +32,11 @@ export default function Input({ label, required, error, ...props }: InputProps) 
             flexDirection: "row",
             gap: "4px",
             fontSize: {
-              base: "14px",
-              md: "16px",
+              base: "12px",
+              // md: "16px",
             },
-            fontWeight: "medium",
-            color: "gray.800",
+            fontWeight: "regular",
+            color: "gray.700",
           })}
         >
           {label}
@@ -57,19 +57,19 @@ export default function Input({ label, required, error, ...props }: InputProps) 
         {...props}
         className={css({
           px: {
-            base: "12px",
-            md: "16px",
+            base: "16px",
+            // md: "16px",
           },
-          py: "10px",
+          py: "12px",
           fontSize: {
-            base: "14px",
-            md: "16px",
+            base: "12px",
+            // md: "12px",
           },
           borderRadius: {
-            base: "6px",
-            md: "8px",
+            base: "8px",
+            // md: "8px",
           },
-          border: "1.5px solid",
+          border: "1px solid",
           borderColor: error ? "red.500" : "gray.300",
 
           outline: "none",
@@ -79,7 +79,7 @@ export default function Input({ label, required, error, ...props }: InputProps) 
           cursor: props.disabled ? "not-allowed" : "text",
 
           _placeholder: {
-            color: "gray.400",
+            color: "gray.500",
           },
 
           _focus: {
@@ -95,8 +95,8 @@ export default function Input({ label, required, error, ...props }: InputProps) 
           className={css({
             color: "red.500",
             fontSize: {
-              base: "11px",
-              md: "12px",
+              base: "12px",
+              // md: "12px",
             },
             display: "flex",
             alignItems: "center",
