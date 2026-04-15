@@ -4,12 +4,14 @@ import { css } from "@/styled-system/css";
 import { useRef, useState } from "react";
 import Icon from "@/components/ui/Icon/Icon";
 
+// Upload Props 타입 정의
 interface UploadProps {
   label?: string;
   accept?: string;
   maxFiles?: number;
 }
 
+// Upload 컴포넌트
 export default function Upload({ label, accept = ".pdf", maxFiles = 1 }: UploadProps) {
   const inputRef = useRef<HTMLInputElement>(null);
   const [files, setFiles] = useState<File[]>([]);

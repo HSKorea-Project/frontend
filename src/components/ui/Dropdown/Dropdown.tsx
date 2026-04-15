@@ -1,125 +1,3 @@
-// import { css } from "@/styled-system/css";
-// import { SelectHTMLAttributes } from "react";
-// import Icon from "@/components/ui/Icon/Icon";
-
-// interface DropdownOption {
-//   label: string;
-//   value: string;
-// }
-
-// interface DropdownProps extends SelectHTMLAttributes<HTMLSelectElement> {
-//   label?: string;
-//   required?: boolean;
-//   options: DropdownOption[];
-//   placeholder?: string;
-//   fullWidth?: boolean;
-// }
-
-// export default function Dropdown({
-//   label,
-//   required,
-//   options,
-//   placeholder = "선택해주세요",
-//   fullWidth = false,
-//   ...props
-// }: DropdownProps) {
-//   return (
-//     <div
-//       className={css({
-//         display: "flex",
-//         flexDirection: "column",
-//         textAlign: "left",
-//         minWidth: "120px",
-//         width: fullWidth ? "100%" : "auto",
-//         gap: {
-//           base: "8px",
-//           // md: "8px",
-//         },
-//       })}
-//     >
-//       {label && (
-//         <label
-//           className={css({
-//             display: "flex",
-//             flexDirection: "row",
-//             gap: "4px",
-//             fontSize: {
-//               base: "12px",
-//             },
-//             fontWeight: "regular",
-//             color: "gray.700",
-//           })}
-//         >
-//           {label}
-//           {required && (
-//             <span
-//               className={css({
-//                 color: "green.500",
-//               })}
-//             >
-//               *
-//             </span>
-//           )}
-//         </label>
-//       )}
-
-//       <div
-//         className={css({
-//           position: "relative",
-//         })}
-//       >
-//         <select
-//           {...props}
-//           className={css({
-//             width: "100%",
-//             maxWidth: "375px",
-//             px: {
-//               base: "16px",
-//             },
-//             py: "12px",
-//             fontSize: {
-//               base: "12px",
-//             },
-//             borderRadius: {
-//               base: "8px",
-//             },
-//             border: "1px solid",
-//             outline: "none",
-//             transition: "all 0.2s",
-//             bg: props.disabled ? "gray.100" : "white",
-//             color: props.value ? "gray.900" : "gray.500",
-//             borderColor: "gray.300",
-//             appearance: "none",
-//           })}
-//         >
-//           <option value="">{placeholder}</option>
-
-//           {options.map((option) => (
-//             <option key={option.value} value={option.value} className={css({ color: "gray.900" })}>
-//               {option.label}
-//             </option>
-//           ))}
-//         </select>
-
-//         <div
-//           className={css({
-//             position: "absolute",
-//             top: "50%",
-//             right: "16px",
-//             transform: "translateY(-50%)",
-//             pointerEvents: "none",
-//             color: "gray.500",
-//             display: "flex",
-//             alignItems: "center",
-//           })}
-//         >
-//           <Icon name="down" />
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }
-
 "use client";
 
 import { css, cx } from "@/styled-system/css";
@@ -131,6 +9,7 @@ interface Option {
   value: string;
 }
 
+// Dropdown Props 타입 정의
 interface DropdownProps {
   value: string;
   onChange: (value: string) => void;
@@ -141,6 +20,7 @@ interface DropdownProps {
   required?: boolean;
 }
 
+// Dropdown 컴포넌트
 export default function Dropdown({
   value,
   onChange,
@@ -174,8 +54,6 @@ export default function Dropdown({
           display: "flex",
           flexDirection: "column",
           position: "relative",
-          // width: "100%",
-          // width: "fit-content",
           minWidth: "120px",
           gap: {
             base: "8px",
@@ -185,6 +63,7 @@ export default function Dropdown({
         className
       )}
     >
+      {/* 라벨 */}
       {label && (
         <label
           className={css({

@@ -4,7 +4,7 @@ import { TextareaHTMLAttributes } from "react";
 // Textarea props 타입 정의
 interface TextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   label?: string;
-  required?: boolean; // 필수 기호 여부
+  required?: boolean;
 }
 
 // Textarea 컴포넌트
@@ -75,6 +75,11 @@ export default function Textarea({ label, required, ...props }: TextareaProps) {
 
           _placeholder: {
             color: "gray.500",
+          },
+
+          _focus: {
+            borderColor: "green.500",
+            boxShadow: "0 0 0 3px rgba(46,158,97,0.2)",
           },
 
           minHeight: "100px",
