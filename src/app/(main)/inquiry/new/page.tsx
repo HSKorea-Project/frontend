@@ -16,7 +16,7 @@ export default function QuoteInquiryPage() {
   const [certification, setCertification] = useState("");
 
   const [square, setSquare] = useState("");
-  const [moveDate, setMoveDate] = useState("");
+  const [moveDate, setMoveDate] = useState<Date | null>(null);
   const [moveType, setMoveType] = useState("");
   const [origin, setOrigin] = useState("");
   const [originDetail, setOriginDetail] = useState("");

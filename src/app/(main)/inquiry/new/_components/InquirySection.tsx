@@ -7,12 +7,13 @@ import Radio from "@/components/ui/Radio/Radio";
 import Input from "@/components/ui/Input/Input";
 import Dropdown from "@/components/ui/Dropdown/Dropdown";
 import Textarea from "@/components/ui/Textarea/Textarea";
+import DateInput from "./DateInput";
 
 interface InquiryProps {
   square: string;
   setSquare: (v: string) => void;
-  moveDate: string;
-  setMoveDate: (v: string) => void;
+  moveDate: Date | null;
+  setMoveDate: (v: Date | null) => void;
   moveType: string;
   setMoveType: (v: string) => void;
   origin: string;
@@ -69,13 +70,11 @@ export default function InquirySection({
           required
           placeholder="예: 50평 / 30명"
         />
-
-        <Input
+        <DateInput
           value={moveDate}
-          onChange={(e) => setMoveDate(e.target.value)}
+          onChange={(val) => setMoveDate(val)}
           label="이사 예정일"
           required
-          placeholder="이사 예정일 입력"
         />
       </div>
 
