@@ -129,10 +129,11 @@ export default function Dropdown({
             mt: "4px",
             bg: "white",
             border: "1px solid",
-            borderColor: "gray.200",
+            borderColor: "gray.300",
             borderRadius: "8px",
             zIndex: 10,
             overflow: "hidden",
+            boxShadow: "0 0 32px 0 rgba(22, 23, 25, 0.1)",
           })}
         >
           {options.map((option) => (
@@ -149,10 +150,12 @@ export default function Dropdown({
                 cursor: "pointer",
 
                 _hover: {
-                  bg: "gray.100",
+                  bg: "green.50",
+                  color: "green.700",
                 },
 
-                bg: value === option.value ? "gray.100" : "white",
+                bg: value === option.value ? "green.50" : "white",
+                color: value === option.value ? "green.700" : "gray.900",
               })}
             >
               {option.label}

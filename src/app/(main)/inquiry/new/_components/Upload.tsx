@@ -71,17 +71,33 @@ export default function Upload({ label, accept = ".pdf", maxFiles = 1 }: UploadP
           },
         })}
       >
-        <Icon name="upload" />
-
-        <span
-          className={css({
-            fontSize: "12px",
-            color: "green.700",
-            fontWeight: "medium",
-          })}
-        >
-          파일 선택하기
-        </span>
+        {/* 선택된 파일 목록 */}
+        {files.length > 0 ? (
+          <ul
+            className={css({
+              fontSize: "12px",
+              color: "green.700",
+              fontWeight: "medium",
+            })}
+          >
+            {files.map((file) => (
+              <li key={file.name}>{file.name}</li>
+            ))}
+          </ul>
+        ) : (
+          <>
+            <Icon name="upload" />
+            <span
+              className={css({
+                fontSize: "12px",
+                color: "green.700",
+                fontWeight: "medium",
+              })}
+            >
+              파일 선택하기
+            </span>
+          </>
+        )}
       </div>
 
       {/* 파일 정보 */}
@@ -93,20 +109,6 @@ export default function Upload({ label, accept = ".pdf", maxFiles = 1 }: UploadP
       >
         PDF 파일 권장 · 최대 {maxFiles}개
       </p>
-
-      {/* 선택된 파일 목록 */}
-      {files.length > 0 && (
-        <ul
-          className={css({
-            fontSize: "12px",
-            color: "gray.700",
-          })}
-        >
-          {files.map((file) => (
-            <li key={file.name}>{file.name}</li>
-          ))}
-        </ul>
-      )}
 
       {/* 숨겨진 input */}
       <input

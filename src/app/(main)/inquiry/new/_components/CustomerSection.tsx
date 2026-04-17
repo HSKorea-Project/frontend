@@ -5,6 +5,7 @@ import Card from "./Card";
 import Input from "@/components/ui/Input/Input";
 import Dropdown from "@/components/ui/Dropdown/Dropdown";
 import Button from "@/components/ui/Button/Button";
+import { formatPhoneNumber, onlyNumber } from "@/utils/format";
 
 interface CustomerProps {
   clientCompany: string;
@@ -91,7 +92,10 @@ export default function CustomerSection({
 
             <Input
               value={clientContact}
-              onChange={(e) => setClientContact(e.target.value)}
+              onChange={(e) => {
+                const formatted = formatPhoneNumber(e.target.value);
+                setClientContact(formatted);
+              }}
               placeholder="010-0000-0000"
               className={css({
                 flex: 1,
@@ -122,7 +126,10 @@ export default function CustomerSection({
         >
           <Input
             value={certification}
-            onChange={(e) => setCertification(e.target.value)}
+            onChange={(e) => {
+              const numeric = onlyNumber(e.target.value);
+              setCertification(numeric);
+            }}
             placeholder="인증번호 입력"
             className={css({
               flex: 1,
