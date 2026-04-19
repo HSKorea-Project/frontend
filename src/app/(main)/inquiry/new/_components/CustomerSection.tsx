@@ -7,6 +7,7 @@ import Dropdown from "@/components/ui/Dropdown/Dropdown";
 import Button from "@/components/ui/Button/Button";
 import { formatPhoneNumber, onlyNumber } from "@/utils/format";
 
+// CustomerSection Props 타입 정의
 interface CustomerProps {
   clientCompany: string;
   setClientCompany: (v: string) => void;
@@ -20,6 +21,7 @@ interface CustomerProps {
   setCertification: (v: string) => void;
 }
 
+// '고객 정보' 섹션 컴포넌트
 export default function CustomerSection({
   clientCompany,
   setClientCompany,
@@ -34,6 +36,7 @@ export default function CustomerSection({
 }: CustomerProps) {
   return (
     <Card title="고객 정보" icon="user">
+      {/* 고객사명 input */}
       <Input
         value={clientCompany}
         onChange={(e) => setClientCompany(e.target.value)}
@@ -42,6 +45,7 @@ export default function CustomerSection({
         placeholder="회사명 또는 기관명을 입력하세요"
       />
 
+      {/* 고객명 input */}
       <Input
         value={clientName}
         onChange={(e) => setClientName(e.target.value)}
@@ -61,7 +65,7 @@ export default function CustomerSection({
             width: "100%",
           })}
         >
-          {/* 드롭다운 + 인풋 */}
+          {/* 통신사 dropdown + 전화번호 input */}
           <div
             className={css({
               display: "flex",
@@ -117,7 +121,7 @@ export default function CustomerSection({
           </Button>
         </div>
 
-        {/* 인증번호 */}
+        {/* 인증번호 input + 확인 버튼 */}
         <div
           className={css({
             display: "flex",

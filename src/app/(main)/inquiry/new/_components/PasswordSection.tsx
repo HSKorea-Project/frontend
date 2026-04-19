@@ -4,6 +4,7 @@ import { css } from "@/styled-system/css";
 import Card from "./Card";
 import Input from "@/components/ui/Input/Input";
 
+// PasswordSection Props 타입 정의
 interface PasswordProps {
   password: string;
   setPassword: (v: string) => void;
@@ -11,6 +12,7 @@ interface PasswordProps {
   setConfirmPassword: (v: string) => void;
 }
 
+// '게시물 비밀번호' 섹션 컴포넌트
 export default function PasswordSection({
   password,
   setPassword,
@@ -42,6 +44,7 @@ export default function PasswordSection({
           gap: "16px",
         })}
       >
+        {/* 비밀번호 입력 Input */}
         <Input
           value={password}
           onChange={(e) => {
@@ -53,6 +56,7 @@ export default function PasswordSection({
           placeholder="비밀번호를 입력하세요"
           error={isPwError ? "비밀번호는 최소 4자리 이상이어야 합니다." : undefined}
         />
+        {/* 비밀번호 재입력 Input */}
         <Input
           value={confirmPassword}
           onChange={(e) => {

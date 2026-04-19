@@ -6,11 +6,13 @@ import Button from "@/components/ui/Button/Button";
 import CheckBox from "@/components/ui/CheckBox/CheckBox";
 import { Dispatch, SetStateAction } from "react";
 
+// AgreementSection Props 타입 정의
 interface AgreementProps {
   privacy: boolean;
   setPrivacy: Dispatch<SetStateAction<boolean>>;
 }
 
+// '약관 동의' 섹션 컴포넌트
 export default function AgreementSection({ privacy, setPrivacy }: AgreementProps) {
   const handlePrivacyChange = () => {
     setPrivacy((prev) => !prev);
@@ -32,6 +34,7 @@ export default function AgreementSection({ privacy, setPrivacy }: AgreementProps
           borderColor: "gray.200",
         })}
       >
+        {/* 약관 동의 박스 */}
         <CheckBox checked={privacy} onClick={() => handlePrivacyChange()} />
         <p
           className={css({
@@ -47,12 +50,15 @@ export default function AgreementSection({ privacy, setPrivacy }: AgreementProps
             color: "green.600",
             textDecoration: "underline",
             fontSize: { base: "12px" },
+            cursor: "pointer",
+            // 상세 약관 동의 내용 추가 예정
           })}
         >
           [상세보기]
         </p>
       </div>
 
+      {/* 구분선 */}
       <hr
         className={css({
           height: "1px",
@@ -61,6 +67,7 @@ export default function AgreementSection({ privacy, setPrivacy }: AgreementProps
         })}
       />
 
+      {/* 안내 문구 */}
       <p
         className={css({
           fontWeight: "regular",
@@ -72,6 +79,7 @@ export default function AgreementSection({ privacy, setPrivacy }: AgreementProps
         문의 내용은 담당자 검토 후 빠른 시일 내 연락드립니다.
       </p>
 
+      {/* 버튼 */}
       <Button variant="primary" fullWidth className={css({ maxWidth: "200px", marginX: "auto" })}>
         문의하기
       </Button>

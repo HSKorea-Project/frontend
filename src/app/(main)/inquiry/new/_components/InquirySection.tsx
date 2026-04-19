@@ -9,6 +9,7 @@ import Dropdown from "@/components/ui/Dropdown/Dropdown";
 import Textarea from "@/components/ui/Textarea/Textarea";
 import DateInput from "./DateInput";
 
+// InquirySection Props 타입 정의
 interface InquiryProps {
   square: string;
   setSquare: (v: string) => void;
@@ -32,6 +33,7 @@ interface InquiryProps {
   setAirconditioner: (v: "included" | "excluded") => void;
 }
 
+// '문의 정보' 섹션 컴포넌트
 export default function InquirySection({
   square,
   setSquare,
@@ -63,6 +65,7 @@ export default function InquirySection({
           gap: "20px",
         })}
       >
+        {/* 이사 평 수 및 인원 수 입력 Input */}
         <Input
           value={square}
           onChange={(e) => setSquare(e.target.value)}
@@ -70,6 +73,7 @@ export default function InquirySection({
           required
           placeholder="예: 50평 / 30명"
         />
+        {/* 이사 예정일 선택 DatePicker */}
         <DateInput
           value={moveDate}
           onChange={(val) => setMoveDate(val)}
@@ -78,6 +82,7 @@ export default function InquirySection({
         />
       </div>
 
+      {/* 이사 유형 선택 Dropdown */}
       <Dropdown
         value={moveType}
         onChange={(val) => setMoveType(val)}
@@ -103,6 +108,7 @@ export default function InquirySection({
           gap: "8px",
         })}
       >
+        {/* 출발지 주소 입력 Input * 주소 검색 API 연동 예정  */}
         <Input
           value={origin}
           onChange={(e) => setOrigin(e.target.value)}
@@ -110,6 +116,7 @@ export default function InquirySection({
           required
           placeholder="주소 검색"
         />
+        {/* 출발지 상세 주소 입력 Input */}
         <Input
           value={originDetail}
           onChange={(e) => setOriginDetail(e.target.value)}
@@ -124,6 +131,7 @@ export default function InquirySection({
           gap: "8px",
         })}
       >
+        {/* 도착지 주소 입력 Input * 주소 검색 API 연동 예정  */}
         <Input
           value={destination}
           onChange={(e) => setDestination(e.target.value)}
@@ -131,6 +139,7 @@ export default function InquirySection({
           required
           placeholder="주소 검색"
         />
+        {/* 도착지 상세 주소 입력 Input */}
         <Input
           value={destinationDetail}
           onChange={(e) => setDestinationDetail(e.target.value)}
@@ -138,6 +147,7 @@ export default function InquirySection({
         />
       </div>
 
+      {/* 문의 내용 입력 Textarea */}
       <Textarea
         value={inquiry}
         onChange={(e) => setInquiry(e.target.value)}
@@ -160,6 +170,7 @@ export default function InquirySection({
             width: "100%",
           })}
         >
+          {/* 폐기물 처리 여부 선택 Radio */}
           <p className={css({ fontWeight: "regular", fontSize: "12px", color: "gray.700" })}>
             폐기물 처리
           </p>
@@ -184,6 +195,7 @@ export default function InquirySection({
             width: "100%",
           })}
         >
+          {/* 에어컨 이전 설치 여부 선택 Radio */}
           <p className={css({ fontWeight: "regular", fontSize: "12px", color: "gray.700" })}>
             에어컨 이전 설치
           </p>
@@ -201,6 +213,7 @@ export default function InquirySection({
           </div>
         </div>
       </div>
+      {/* 업로드 박스 */}
       <Upload label="파일 업로드" />
     </Card>
   );
