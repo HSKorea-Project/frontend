@@ -68,7 +68,7 @@ export default function AgreementSection({ privacy, setPrivacy }: AgreementProps
       />
 
       {/* 안내 문구 */}
-      <p
+      {/* <p
         className={css({
           fontWeight: "regular",
           color: "gray.500",
@@ -77,7 +77,7 @@ export default function AgreementSection({ privacy, setPrivacy }: AgreementProps
         })}
       >
         문의 내용은 담당자 검토 후 빠른 시일 내 연락드립니다.
-      </p>
+      </p> */}
 
       {/* 버튼 */}
       <Button variant="primary" fullWidth className={css({ maxWidth: "200px", marginX: "auto" })}>
