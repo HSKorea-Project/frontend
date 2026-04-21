@@ -40,7 +40,7 @@ export default function AgreementSection({ privacy, setPrivacy }: AgreementProps
           className={css({
             fontWeight: "regular",
             color: "gray.700",
-            fontSize: { base: "12px" },
+            fontSize: "12px",
           })}
         >
           개인정보 수집 및 이용에 동의합니다.
@@ -49,7 +49,7 @@ export default function AgreementSection({ privacy, setPrivacy }: AgreementProps
           className={css({
             color: "green.600",
             textDecoration: "underline",
-            fontSize: { base: "12px" },
+            fontSize: "12px",
             cursor: "pointer",
             // 상세 약관 동의 내용 추가 예정
           })}
