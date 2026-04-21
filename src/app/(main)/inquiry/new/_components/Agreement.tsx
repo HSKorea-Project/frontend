@@ -18,6 +18,7 @@ export default function Agreement({ form, setForm }: AgreementProps) {
   return (
     <Section title="약관 동의" icon="confirm">
       <div
+        id="privacy"
         className={css({
           display: "flex",
           flexDirection: "row",
@@ -73,7 +74,12 @@ export default function Agreement({ form, setForm }: AgreementProps) {
       />
 
       {/* 버튼 */}
-      <Button variant="primary" fullWidth className={css({ maxWidth: "200px", marginX: "auto" })}>
+      <Button
+        type="submit"
+        variant="primary"
+        fullWidth
+        className={css({ maxWidth: "200px", marginX: "auto" })}
+      >
         문의하기
       </Button>
     </Section>

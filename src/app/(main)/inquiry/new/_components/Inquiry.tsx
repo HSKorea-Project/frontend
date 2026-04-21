@@ -23,6 +23,7 @@ export default function InquirySection({ form, setForm }: InquiryProps) {
   return (
     <Section title="문의 정보" icon="info">
       <div
+        id="moveDate"
         className={css({
           display: "flex",
           flexDirection: { base: "column", md: "row" },
@@ -72,43 +73,47 @@ export default function InquirySection({ form, setForm }: InquiryProps) {
       />
 
       {/* 주소 검색 기능 추가 예정 */}
-      <AddressInput
-        label="출발지 주소"
-        value={form.origin}
-        detailValue={form.originDetail}
-        required
-        onChange={(v) =>
-          setForm((prev) => ({
-            ...prev,
-            origin: v,
-          }))
-        }
-        onDetailChange={(v) =>
-          setForm((prev) => ({
-            ...prev,
-            originDetail: v,
-          }))
-        }
-      />
+      <div id="origin">
+        <AddressInput
+          label="출발지 주소"
+          value={form.origin}
+          detailValue={form.originDetail}
+          required
+          onChange={(v) =>
+            setForm((prev) => ({
+              ...prev,
+              origin: v,
+            }))
+          }
+          onDetailChange={(v) =>
+            setForm((prev) => ({
+              ...prev,
+              originDetail: v,
+            }))
+          }
+        />
+      </div>
 
-      <AddressInput
-        label="도착지 주소"
-        value={form.destination}
-        detailValue={form.destinationDetail}
-        required
-        onChange={(v) =>
-          setForm((prev) => ({
-            ...prev,
-            destination: v,
-          }))
-        }
-        onDetailChange={(v) =>
-          setForm((prev) => ({
-            ...prev,
-            destinationDetail: v,
-          }))
-        }
-      />
+      <div id="destination">
+        <AddressInput
+          label="도착지 주소"
+          value={form.destination}
+          detailValue={form.destinationDetail}
+          required
+          onChange={(v) =>
+            setForm((prev) => ({
+              ...prev,
+              destination: v,
+            }))
+          }
+          onDetailChange={(v) =>
+            setForm((prev) => ({
+              ...prev,
+              destinationDetail: v,
+            }))
+          }
+        />
+      </div>
 
       {/* 문의 내용 입력 Textarea */}
       <Textarea

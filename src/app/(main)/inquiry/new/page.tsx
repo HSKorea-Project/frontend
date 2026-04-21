@@ -1,7 +1,7 @@
 "use client";
 
 import { css } from "@/styled-system/css";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Password from "./_components/Password";
 import Agreement from "./_components/Agreement";
 import Inquiry from "./_components/Inquiry";
@@ -28,12 +28,53 @@ export default function QuoteInquiryPage() {
     inquiry: "",
     waste: "excluded",
     airconditioner: "excluded",
+    file: null,
 
     password: "",
     confirmPassword: "",
 
     privacy: false,
   });
+
+  // 미입력 항목 스크롤
+  const fieldRefs = useRef<Record<string, HTMLElement | null>>({});
+
+  // 필수 내용 입력 검증
+  const validate = () => {
+    if (!form.clientCompany) return "clientCompany";
+    if (!form.clientName) return "clientName";
+    if (!form.clientContact) return "clientContact";
+    if (!form.moveDate) return "moveDate";
+    if (!form.origin) return "origin";
+    if (!form.destination) return "destination";
+    if (form.password.length < 4) return "password";
+    if (form.password !== form.confirmPassword) return "confirmPassword";
+    if (!form.privacy) return "privacy";
+
+    return null;
+  };
+
+  // 문의 내역 등록
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    const errorField = validate();
+
+    if (errorField) {
+      const el = document.getElementById(errorField);
+
+      el?.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
+      (el as HTMLElement)?.focus?.();
+
+      return;
+    }
+
+    // 정상 제출
+    console.log("제출 완료");
+  };
 
   return (
     <div
@@ -94,7 +135,8 @@ export default function QuoteInquiryPage() {
           </div>
 
           {/* 정보 입력 섹션 */}
-          <div
+          <form
+            onSubmit={handleSubmit}
             className={css({
               display: "flex",
               flexDirection: "column",
@@ -112,7 +154,7 @@ export default function QuoteInquiryPage() {
 
             {/* 약관 동의 */}
             <Agreement form={form} setForm={setForm} />
-          </div>
+          </form>
         </div>
       </div>
       <div />

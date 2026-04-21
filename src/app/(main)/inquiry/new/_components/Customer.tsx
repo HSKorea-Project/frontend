@@ -66,32 +66,36 @@ export default function Customer({ form, setForm }: CustomerProps) {
   return (
     <Section title="고객 정보" icon="user">
       {/* 고객사명 input */}
-      <Input
-        value={form.clientCompany}
-        onChange={(e) =>
-          setForm((prev) => ({
-            ...prev,
-            clientCompany: e.target.value,
-          }))
-        }
-        label="고객사명"
-        required
-        placeholder="회사명 또는 기관명을 입력하세요"
-      />
+      <div id="clientCompany">
+        <Input
+          value={form.clientCompany}
+          onChange={(e) =>
+            setForm((prev) => ({
+              ...prev,
+              clientCompany: e.target.value,
+            }))
+          }
+          label="고객사명"
+          required
+          placeholder="회사명 또는 기관명을 입력하세요"
+        />
+      </div>
 
       {/* 고객명 input */}
-      <Input
-        value={form.clientName}
-        onChange={(e) =>
-          setForm((prev) => ({
-            ...prev,
-            clientName: e.target.value,
-          }))
-        }
-        label="고객명"
-        required
-        placeholder="담당자 이름을 입력하세요"
-      />
+      <div id="clientName">
+        <Input
+          value={form.clientName}
+          onChange={(e) =>
+            setForm((prev) => ({
+              ...prev,
+              clientName: e.target.value,
+            }))
+          }
+          label="고객명"
+          required
+          placeholder="담당자 이름을 입력하세요"
+        />
+      </div>
 
       {/* 연락처 */}
       <div className={css({ display: "flex", flexDirection: "column", gap: "8px" })}>
@@ -133,6 +137,7 @@ export default function Customer({ form, setForm }: CustomerProps) {
             />
 
             <Input
+              id="clientContact"
               value={form.clientContact}
               onChange={(e) => {
                 const formatted = formatPhoneNumber(e.target.value);
@@ -161,7 +166,7 @@ export default function Customer({ form, setForm }: CustomerProps) {
               width: { base: "stretch", md: "auto" },
             })}
           >
-            {cooldown > 0 ? `${cooldown}s` : "인증"}
+            {cooldown > 0 && !isVerified ? `${cooldown}s` : isVerified ? "완료" : `인증`}
           </Button>
         </div>
 

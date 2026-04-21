@@ -5,7 +5,7 @@ import Section from "./Section";
 import Input from "@/components/ui/Input/Input";
 import { QuoteForm } from "../../_types/quote";
 import { SetStateAction } from "react";
-import { validateConfirmPassword, validatePassword } from "@/utils/valid";
+import { validateConfirmPassword, validatePassword } from "@/utils/validate";
 
 // Password Props 타입 정의
 interface PasswordProps {
@@ -42,6 +42,7 @@ export default function Password({ form, setForm }: PasswordProps) {
       >
         {/* 비밀번호 입력 Input */}
         <Input
+          id="password"
           value={form.password}
           onChange={(e) => {
             setForm((prev) => ({
@@ -58,6 +59,7 @@ export default function Password({ form, setForm }: PasswordProps) {
 
         {/* 비밀번호 재입력 Input */}
         <Input
+          id="confirmPassword"
           value={form.confirmPassword}
           onChange={(e) => {
             setForm((prev) => ({
