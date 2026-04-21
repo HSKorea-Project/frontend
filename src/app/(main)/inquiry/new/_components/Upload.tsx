@@ -8,24 +8,40 @@ import Icon from "@/components/ui/Icon/Icon";
 interface UploadProps {
   label?: string;
   accept?: string;
-  maxFiles?: number;
+  onChange?: (file: File | null) => void;
 }
 
 // Upload 컴포넌트
-export default function Upload({ label, accept = ".pdf", maxFiles = 1 }: UploadProps) {
+export default function Upload({
+  label,
+  accept = "application/pdf,image/*",
+  onChange,
+}: UploadProps) {
   const inputRef = useRef<HTMLInputElement>(null);
-  const [files, setFiles] = useState<File[]>([]);
+  const [file, setFile] = useState<File | null>(null);
 
   const handleClick = () => {
     inputRef.current?.click();
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const selected = e.target.files ? Array.from(e.target.files) : [];
+    const selected = e.target.files?.[0] ?? null;
 
-    if (selected.length > maxFiles) return;
+    if (!selected) return;
 
-    setFiles(selected);
+    // 파일 타입 검증
+    const isValid = selected.type === "application/pdf" || selected.type.startsWith("image/");
+
+    if (!isValid) {
+      alert("PDF 또는 이미지 파일만 업로드 가능합니다.");
+      return;
+    }
+
+    setFile(selected);
+    onChange?.(selected);
+
+    // 같은 파일 다시 선택 가능하게
+    e.target.value = "";
   };
 
   return (
@@ -72,18 +88,18 @@ export default function Upload({ label, accept = ".pdf", maxFiles = 1 }: UploadP
         })}
       >
         {/* 선택된 파일 목록 */}
-        {files.length > 0 ? (
-          <ul
-            className={css({
-              fontSize: "12px",
-              color: "green.700",
-              fontWeight: "medium",
-            })}
-          >
-            {files.map((file) => (
-              <li key={file.name}>{file.name}</li>
-            ))}
-          </ul>
+        {file ? (
+          <>
+            <span
+              className={css({
+                fontSize: "12px",
+                color: "green.700",
+                fontWeight: "medium",
+              })}
+            >
+              {file.name}
+            </span>
+          </>
         ) : (
           <>
             <Icon name="upload" />
@@ -107,7 +123,7 @@ export default function Upload({ label, accept = ".pdf", maxFiles = 1 }: UploadP
           color: "gray.500",
         })}
       >
-        PDF 파일 권장 · 최대 {maxFiles}개
+        PDF 파일 권장 · 최대 1개
       </p>
 
       {/* 숨겨진 input */}
@@ -115,7 +131,6 @@ export default function Upload({ label, accept = ".pdf", maxFiles = 1 }: UploadP
         ref={inputRef}
         type="file"
         accept={accept}
-        multiple={maxFiles > 1}
         onChange={handleChange}
         style={{ display: "none" }}
       />

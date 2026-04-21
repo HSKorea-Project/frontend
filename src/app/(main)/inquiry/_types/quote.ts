@@ -16,6 +16,7 @@ export interface QuoteForm {
   inquiry: string;
   waste: "included" | "excluded";
   airconditioner: "included" | "excluded";
+  file: File | null;
 
   password: string;
   confirmPassword: string;
