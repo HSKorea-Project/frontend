@@ -201,8 +201,17 @@ export default function InquirySection({ form, setForm }: InquiryProps) {
           </div>
         </div>
       </div>
+
       {/* 업로드 박스 */}
-      <Upload label="파일 업로드" />
+      <Upload
+        label="첨부파일"
+        onChange={(file) =>
+          setForm((prev) => ({
+            ...prev,
+            file,
+          }))
+        }
+      />
     </Section>
   );
 }
