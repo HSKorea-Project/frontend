@@ -1,3 +1,4 @@
+// 문의내역 글 비밀번호
 export const validatePassword = (password: string) => {
   if (!password) return null;
   if (password.length < 4) return "비밀번호는 최소 4자리 이상이어야 합니다.";
