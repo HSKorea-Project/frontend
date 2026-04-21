@@ -89,6 +89,7 @@ export default function Dropdown({
 
       {/* 버튼 */}
       <button
+        type="button"
         onClick={() => setOpen((prev) => !prev)}
         className={css({
           display: "flex",
