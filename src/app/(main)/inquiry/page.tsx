@@ -6,9 +6,9 @@ import InquirySearchBar from "./_components/InquirySearchBar";
 import { useState } from "react";
 import { InquiryItem } from "./_types/inquiry";
 import Pagination from "./_components/Pagination";
-import { inquiryMockData } from "@/constants/mocks/InquiryMockData";
 import { useIsMobile } from "@/hooks/useIsMobile";
 import InquiryCard from "./_components/InquiryCard";
+import { inquiryMockData } from "@/constants/mocks/inquiryMockData";
 
 // 문의내역
 export default function InquiryListPage() {

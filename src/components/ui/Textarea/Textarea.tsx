@@ -1,16 +1,16 @@
 import { css } from "@/styled-system/css";
-import { InputHTMLAttributes } from "react";
-import Icon from "@/components/ui/Icon/Icon";
+import { TextareaHTMLAttributes, useId } from "react";
 
-// Input props 타입 정의
-interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+// Textarea props 타입 정의
+interface TextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   label?: string;
-  required?: boolean; // 필수 기호 여부
-  error?: string; // 에러 메세지
+  required?: boolean;
 }
 
-// Input 컴포넌트
-export default function Input({ label, required, error, ...props }: InputProps) {
+// Textarea 컴포넌트
+export default function Textarea({ label, required, ...props }: TextareaProps) {
+  const id = useId();
+
   return (
     <div
       className={css({
@@ -24,6 +24,7 @@ export default function Input({ label, required, error, ...props }: InputProps) 
       {/* 라벨 */}
       {label && (
         <label
+          htmlFor={id}
           className={css({
             display: "flex",
             flexDirection: "row",
@@ -46,8 +47,9 @@ export default function Input({ label, required, error, ...props }: InputProps) 
         </label>
       )}
 
-      {/* Input */}
-      <input
+      {/* Textarea */}
+      <textarea
+        id={id}
         {...props}
         className={css({
           px: "16px",
@@ -55,39 +57,23 @@ export default function Input({ label, required, error, ...props }: InputProps) 
           fontSize: "12px",
           borderRadius: "8px",
           border: "1px solid",
-          borderColor: error ? "red.500" : "gray.300",
+          borderColor: "gray.300",
 
           outline: "none",
           transition: "all 0.2s",
-
-          bg: props.disabled ? "gray.100" : "white",
-          cursor: props.disabled ? "not-allowed" : "text",
 
           _placeholder: {
             color: "gray.500",
           },
 
           _focus: {
-            borderColor: error ? "red.500" : "green.500",
-            boxShadow: error ? "0 0 0 3px rgba(224,82,82,0.2)" : "0 0 0 3px rgba(46,158,97,0.2)",
+            borderColor: "green.500",
+            boxShadow: "0 0 0 3px rgba(46,158,97,0.2)",
           },
+
+          minHeight: "100px",
         })}
       />
-
-      {/* 에러 메시지 */}
-      {error && (
-        <span
-          className={css({
-            color: "red.500",
-            fontSize: "12px",
-            display: "flex",
-            alignItems: "center",
-            gap: "4px",
-          })}
-        >
-          <Icon name="error" /> {error}
-        </span>
-      )}
     </div>
   );
 }

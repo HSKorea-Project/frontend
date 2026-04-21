@@ -23,10 +23,13 @@ export default function Navbar({ className }: NavbarProps) {
           justifyContent: "space-between",
           alignItems: "center",
           px: {
-            base: "16px",
-            lg: "40px",
+            base: "20px",
+            lg: "32px",
           },
-          py: "16px",
+          py: {
+            base: "8px",
+            lg: "16px",
+          },
           borderBottom: "1px solid",
           borderColor: "gray.200",
           bg: "white",
@@ -58,6 +61,7 @@ export default function Navbar({ className }: NavbarProps) {
               alignItems: "center",
               color: "gray.600",
               fontWeight: "medium",
+              fontSize: "sm",
             })}
           >
             <Link
@@ -118,13 +122,9 @@ export default function Navbar({ className }: NavbarProps) {
           onClick={() => setOpen(true)}
           className={css({
             display: { base: "block", md: "none" },
-            width: "36px",
-            height: "36px",
+            width: "40px",
+            height: "40px",
             cursor: "pointer",
-            _hover: {
-              bg: "gray.100",
-              borderRadius: "md",
-            },
           })}
         >
           <Icon name="menu" />

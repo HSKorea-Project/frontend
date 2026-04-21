@@ -1,4 +1,3 @@
-import Button from "@/components/ui/Button/Button";
 import Icon from "@/components/ui/Icon/Icon";
 import { css } from "@/styled-system/css";
 import Link from "next/link";
@@ -45,41 +44,40 @@ export default function Drawer({ open, onClose }: DrawerProps) {
           transition: "transform 0.3s ease",
           display: "flex",
           flexDirection: "column",
-          paddingY: "16px",
         })}
       >
         {/* 헤더 */}
         <div
           className={css({
             display: "flex",
-            justifyContent: "space-between",
+            justifyContent: "end",
             alignItems: "center",
             borderBottom: "solid 1px",
             borderColor: "gray.100",
-            paddingX: "16px",
-            paddingBottom: "16px",
+            paddingX: "20px",
+            paddingY: "12px",
           })}
         >
-          <span
+          {/* <span
             className={css({
               fontWeight: "bold",
               color: "green.500",
             })}
           >
             HSKorea
-          </span>
+          </span> */}
 
           {/* 닫힘 버튼 */}
           <button
             onClick={onClose}
             className={css({
               cursor: "pointer",
-              width: "36px",
-              height: "36px",
-              _hover: {
-                bg: "gray.100",
-                borderRadius: "md",
-              },
+              width: "32px",
+              height: "32px",
+              // _hover: {
+              //   bg: "gray.100",
+              //   borderRadius: "md",
+              // },
             })}
           >
             <Icon name="close" />
@@ -92,17 +90,21 @@ export default function Drawer({ open, onClose }: DrawerProps) {
             display: "flex",
             flexDirection: "column",
             fontWeight: "medium",
-            marginBottom: "16px",
           })}
         >
           <Link
             href="/about"
             className={css({
-              p: "16px",
+              textAlign: "center",
+              py: "16px",
+              px: "20px",
               _hover: {
                 color: "gray.700",
                 bg: "gray.100",
               },
+              fontSize: "12px",
+              borderBottom: "solid 1px",
+              borderColor: "gray.100",
             })}
           >
             회사소개
@@ -110,11 +112,16 @@ export default function Drawer({ open, onClose }: DrawerProps) {
           <Link
             href="/service"
             className={css({
-              p: "16px",
+              textAlign: "center",
+              py: "16px",
+              px: "20px",
               _hover: {
                 color: "gray.700",
                 bg: "gray.100",
               },
+              fontSize: "12px",
+              borderBottom: "solid 1px",
+              borderColor: "gray.100",
             })}
           >
             서비스소개
@@ -122,21 +129,38 @@ export default function Drawer({ open, onClose }: DrawerProps) {
           <Link
             href="/inquiry"
             className={css({
-              p: "16px",
+              textAlign: "center",
+              py: "16px",
+              px: "20px",
               _hover: {
                 color: "gray.700",
                 bg: "gray.100",
               },
+              fontSize: "12px",
+              borderBottom: "solid 1px",
+              borderColor: "gray.100",
             })}
           >
-            문의내역
+            문의목록
+          </Link>
+          <Link
+            href="/inquiry/new"
+            className={css({
+              textAlign: "center",
+              py: "16px",
+              px: "20px",
+              _hover: {
+                color: "gray.700",
+                bg: "gray.100",
+              },
+              fontSize: "12px",
+              borderBottom: "solid 1px",
+              borderColor: "gray.100",
+            })}
+          >
+            견적문의
           </Link>
         </div>
-
-        {/* 버튼 */}
-        <Link href="/inquiry/new" className={css({ width: "100%", paddingX: "16px" })}>
-          <Button fullWidth={true}>견적문의</Button>
-        </Link>
       </div>
     </>
   );

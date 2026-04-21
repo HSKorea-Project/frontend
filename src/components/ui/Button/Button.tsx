@@ -26,11 +26,13 @@ export default function Button({
       disabled={disabled}
       className={`${css({
         width: fullWidth ? "100%" : "auto",
+        minWidth: "60px",
         px: "4",
-        py: "2",
-        borderRadius: "md",
+        py: "3",
+        borderRadius: "lg",
         fontWeight: "regular",
         cursor: "pointer",
+        fontSize: "12px",
 
         ...(variant === "primary" && {
           bg: "green.500",
