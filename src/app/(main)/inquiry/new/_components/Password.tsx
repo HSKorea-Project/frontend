@@ -3,24 +3,20 @@
 import { css } from "@/styled-system/css";
 import Section from "./Section";
 import Input from "@/components/ui/Input/Input";
+import { QuoteForm } from "../../_types/quote";
+import { SetStateAction } from "react";
 
 // Password Props 타입 정의
 interface PasswordProps {
-  password: string;
-  setPassword: (v: string) => void;
-  confirmPassword: string;
-  setConfirmPassword: (v: string) => void;
+  form: QuoteForm;
+  setForm: React.Dispatch<SetStateAction<QuoteForm>>;
 }
 
 // '게시물 비밀번호' 섹션 컴포넌트
-export default function Password({
-  password,
-  setPassword,
-  confirmPassword,
-  setConfirmPassword,
-}: PasswordProps) {
-  const isPwError = password.length > 0 && password.length < 4;
-  const isConfirmPwError = confirmPassword.length > 0 && password !== confirmPassword;
+export default function Password({ form, setForm }: PasswordProps) {
+  const isPwError = form.password.length > 0 && form.password.length < 4;
+  const isConfirmPwError =
+    form.confirmPassword.length > 0 && form.password !== form.confirmPassword;
 
   return (
     <Section title="게시물 비밀번호" icon="password">
@@ -46,9 +42,12 @@ export default function Password({
       >
         {/* 비밀번호 입력 Input */}
         <Input
-          value={password}
+          value={form.password}
           onChange={(e) => {
-            setPassword(e.target.value);
+            setForm((prev) => ({
+              ...prev,
+              password: e.target.value,
+            }));
           }}
           type="password"
           label="비밀번호"
@@ -58,9 +57,12 @@ export default function Password({
         />
         {/* 비밀번호 재입력 Input */}
         <Input
-          value={confirmPassword}
+          value={form.confirmPassword}
           onChange={(e) => {
-            setConfirmPassword(e.target.value);
+            setForm((prev) => ({
+              ...prev,
+              confirmPassword: e.target.value,
+            }));
           }}
           type="password"
           label="비밀번호 확인"

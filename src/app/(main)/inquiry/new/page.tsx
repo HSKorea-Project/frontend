@@ -6,30 +6,34 @@ import Password from "./_components/Password";
 import Agreement from "./_components/Agreement";
 import Inquiry from "./_components/Inquiry";
 import Customer from "./_components/Customer";
+import { QuoteForm } from "../_types/quote";
 
 // 견적문의 페이지
 export default function QuoteInquiryPage() {
-  const [clientCompany, setClientCompany] = useState("");
-  const [clientName, setClientName] = useState("");
-  const [agency, setAgency] = useState("");
-  const [clientContact, setClientContact] = useState("");
-  const [certification, setCertification] = useState("");
+  // 폼 값 전체 관리
+  const [form, setForm] = useState<QuoteForm>({
+    clientCompany: "",
+    clientName: "",
+    agency: "",
+    clientContact: "",
+    certification: "",
 
-  const [square, setSquare] = useState("");
-  const [moveDate, setMoveDate] = useState<Date | null>(null);
-  const [moveType, setMoveType] = useState("");
-  const [origin, setOrigin] = useState("");
-  const [originDetail, setOriginDetail] = useState("");
-  const [destination, setDestination] = useState("");
-  const [destinationDetail, setDestinationDetail] = useState("");
-  const [inquiry, setInquiry] = useState("");
-  const [waste, setWaste] = useState<"included" | "excluded">("excluded");
-  const [airconditioner, setAirconditioner] = useState<"included" | "excluded">("excluded");
+    square: "",
+    moveDate: null,
+    moveType: "",
+    origin: "",
+    originDetail: "",
+    destination: "",
+    destinationDetail: "",
+    inquiry: "",
+    waste: "excluded",
+    airconditioner: "excluded",
 
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+    password: "",
+    confirmPassword: "",
 
-  const [privacy, setPrivacy] = useState(false);
+    privacy: false,
+  });
 
   return (
     <div
@@ -98,53 +102,16 @@ export default function QuoteInquiryPage() {
             })}
           >
             {/* 고객 정보 */}
-            <Customer
-              clientCompany={clientCompany}
-              setClientCompany={setClientCompany}
-              clientName={clientName}
-              setClientName={setClientName}
-              agency={agency}
-              setAgency={setAgency}
-              clientContact={clientContact}
-              setClientContact={setClientContact}
-              certification={certification}
-              setCertification={setCertification}
-            />
+            <Customer form={form} setForm={setForm} />
 
             {/* 문의 정보 */}
-            <Inquiry
-              square={square}
-              setSquare={setSquare}
-              moveDate={moveDate}
-              setMoveDate={setMoveDate}
-              moveType={moveType}
-              setMoveType={setMoveType}
-              origin={origin}
-              setOrigin={setOrigin}
-              originDetail={originDetail}
-              setOriginDetail={setOriginDetail}
-              destination={destination}
-              setDestination={setDestination}
-              destinationDetail={destinationDetail}
-              setDestinationDetail={setDestinationDetail}
-              inquiry={inquiry}
-              setInquiry={setInquiry}
-              waste={waste}
-              setWaste={setWaste}
-              airconditioner={airconditioner}
-              setAirconditioner={setAirconditioner}
-            />
+            <Inquiry form={form} setForm={setForm} />
 
             {/* 게시물 비밀번호 */}
-            <Password
-              password={password}
-              setPassword={setPassword}
-              confirmPassword={confirmPassword}
-              setConfirmPassword={setConfirmPassword}
-            />
+            <Password form={form} setForm={setForm} />
 
             {/* 약관 동의 */}
-            <Agreement privacy={privacy} setPrivacy={setPrivacy} />
+            <Agreement form={form} setForm={setForm} />
           </div>
         </div>
       </div>

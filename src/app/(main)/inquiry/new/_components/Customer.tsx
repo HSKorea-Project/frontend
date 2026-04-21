@@ -8,41 +8,23 @@ import Button from "@/components/ui/Button/Button";
 import { formatPhoneNumber, onlyNumber } from "@/utils/format";
 import { useEffect, useRef, useState } from "react";
 import { AGENCY } from "@/constants/agency";
+import { QuoteForm } from "../../_types/quote";
 
 // Customer Props 타입 정의
 interface CustomerProps {
-  clientCompany: string;
-  setClientCompany: (v: string) => void;
-  clientName: string;
-  setClientName: (v: string) => void;
-  agency: string;
-  setAgency: (v: string) => void;
-  clientContact: string;
-  setClientContact: (v: string) => void;
-  certification: string;
-  setCertification: (v: string) => void;
+  form: QuoteForm;
+  setForm: React.Dispatch<React.SetStateAction<QuoteForm>>;
 }
 
 // '고객 정보' 섹션 컴포넌트
-export default function Customer({
-  clientCompany,
-  setClientCompany,
-  clientName,
-  setClientName,
-  agency,
-  setAgency,
-  clientContact,
-  setClientContact,
-  certification,
-  setCertification,
-}: CustomerProps) {
+export default function Customer({ form, setForm }: CustomerProps) {
   const [isVerified, setIsVerified] = useState(false); // 인증 완료 여부
   const [cooldown, setCooldown] = useState(0); // 남은 시간 (초)
   const timerRef = useRef<NodeJS.Timeout | null>(null);
 
   // 인증 요청 로직: 재요청은 1분 후 가능
   const handleRequestCode = () => {
-    if (!agency || !clientContact || cooldown > 0) return;
+    if (!form.agency || !form.clientContact || cooldown > 0) return;
 
     // API 요청 추가 예정
     console.log("인증번호 요청");
@@ -63,7 +45,7 @@ export default function Customer({
 
   // 인증번호 확인
   const handleVerifyCode = () => {
-    if (!certification) return;
+    if (!form.certification) return;
 
     // API 검증 자리
     console.log("인증 확인");
@@ -85,8 +67,13 @@ export default function Customer({
     <Section title="고객 정보" icon="user">
       {/* 고객사명 input */}
       <Input
-        value={clientCompany}
-        onChange={(e) => setClientCompany(e.target.value)}
+        value={form.clientCompany}
+        onChange={(e) =>
+          setForm((prev) => ({
+            ...prev,
+            clientCompany: e.target.value,
+          }))
+        }
         label="고객사명"
         required
         placeholder="회사명 또는 기관명을 입력하세요"
@@ -94,8 +81,13 @@ export default function Customer({
 
       {/* 고객명 input */}
       <Input
-        value={clientName}
-        onChange={(e) => setClientName(e.target.value)}
+        value={form.clientName}
+        onChange={(e) =>
+          setForm((prev) => ({
+            ...prev,
+            clientName: e.target.value,
+          }))
+        }
         label="고객명"
         required
         placeholder="담당자 이름을 입력하세요"
@@ -123,8 +115,13 @@ export default function Customer({
             })}
           >
             <Dropdown
-              value={agency}
-              onChange={(val) => setAgency(val)}
+              value={form.agency}
+              onChange={(val) =>
+                setForm((prev) => ({
+                  ...prev,
+                  agency: val,
+                }))
+              }
               placeholder="통신사"
               options={AGENCY}
               className={css({
@@ -136,10 +133,14 @@ export default function Customer({
             />
 
             <Input
-              value={clientContact}
+              value={form.clientContact}
               onChange={(e) => {
                 const formatted = formatPhoneNumber(e.target.value);
-                setClientContact(formatted);
+
+                setForm((prev) => ({
+                  ...prev,
+                  clientContact: formatted,
+                }));
               }}
               placeholder="010-0000-0000"
               className={css({
@@ -154,7 +155,7 @@ export default function Customer({
           <Button
             onClick={handleRequestCode}
             variant="primary"
-            disabled={!clientContact || !agency || cooldown > 0 || isVerified}
+            disabled={!form.clientContact || !form.agency || cooldown > 0 || isVerified}
             className={css({
               height: "44px",
               width: { base: "stretch", md: "auto" },
@@ -172,10 +173,14 @@ export default function Customer({
           })}
         >
           <Input
-            value={certification}
+            value={form.certification}
             onChange={(e) => {
               const numeric = onlyNumber(e.target.value);
-              setCertification(numeric);
+
+              setForm((prev) => ({
+                ...prev,
+                certification: numeric,
+              }));
             }}
             placeholder="인증번호 입력"
             className={css({
@@ -188,7 +193,7 @@ export default function Customer({
           <Button
             onClick={handleVerifyCode}
             variant="primary"
-            disabled={!certification || isVerified}
+            disabled={!form.certification || isVerified}
             className={css({
               height: "44px",
             })}

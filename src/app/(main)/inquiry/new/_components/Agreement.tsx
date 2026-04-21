@@ -5,19 +5,16 @@ import Section from "./Section";
 import Button from "@/components/ui/Button/Button";
 import CheckBox from "@/components/ui/CheckBox/CheckBox";
 import { Dispatch, SetStateAction } from "react";
+import { QuoteForm } from "../../_types/quote";
 
 // Agreement Props 타입 정의
 interface AgreementProps {
-  privacy: boolean;
-  setPrivacy: Dispatch<SetStateAction<boolean>>;
+  form: QuoteForm;
+  setForm: React.Dispatch<SetStateAction<QuoteForm>>;
 }
 
 // '약관 동의' 섹션 컴포넌트
-export default function Agreement({ privacy, setPrivacy }: AgreementProps) {
-  const handlePrivacyChange = () => {
-    setPrivacy((prev) => !prev);
-  };
-
+export default function Agreement({ form, setForm }: AgreementProps) {
   return (
     <Section title="약관 동의" icon="confirm">
       <div
@@ -35,7 +32,15 @@ export default function Agreement({ privacy, setPrivacy }: AgreementProps) {
         })}
       >
         {/* 약관 동의 박스 */}
-        <CheckBox checked={privacy} onClick={() => handlePrivacyChange()} />
+        <CheckBox
+          checked={form.privacy}
+          onClick={() =>
+            setForm((prev) => ({
+              ...prev,
+              privacy: !form.privacy,
+            }))
+          }
+        />
         <p
           className={css({
             fontWeight: "regular",

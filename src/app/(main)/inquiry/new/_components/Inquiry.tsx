@@ -8,54 +8,17 @@ import Input from "@/components/ui/Input/Input";
 import Dropdown from "@/components/ui/Dropdown/Dropdown";
 import Textarea from "@/components/ui/Textarea/Textarea";
 import DateInput from "./DateInput";
+import { QuoteForm } from "../../_types/quote";
+import { MOVE_TYPE } from "@/constants/moveType";
 
 // InquirySection Props 타입 정의
 interface InquiryProps {
-  square: string;
-  setSquare: (v: string) => void;
-  moveDate: Date | null;
-  setMoveDate: (v: Date | null) => void;
-  moveType: string;
-  setMoveType: (v: string) => void;
-  origin: string;
-  setOrigin: (v: string) => void;
-  originDetail: string;
-  setOriginDetail: (v: string) => void;
-  destination: string;
-  setDestination: (v: string) => void;
-  destinationDetail: string;
-  setDestinationDetail: (v: string) => void;
-  inquiry: string;
-  setInquiry: (v: string) => void;
-  waste: "included" | "excluded";
-  setWaste: (v: "included" | "excluded") => void;
-  airconditioner: "included" | "excluded";
-  setAirconditioner: (v: "included" | "excluded") => void;
+  form: QuoteForm;
+  setForm: React.Dispatch<React.SetStateAction<QuoteForm>>;
 }
 
 // '문의 정보' 섹션 컴포넌트
-export default function InquirySection({
-  square,
-  setSquare,
-  moveDate,
-  setMoveDate,
-  moveType,
-  setMoveType,
-  origin,
-  setOrigin,
-  originDetail,
-  setOriginDetail,
-  destination,
-  setDestination,
-  destinationDetail,
-  setDestinationDetail,
-  inquiry,
-  setInquiry,
-  waste,
-  setWaste,
-  airconditioner,
-  setAirconditioner,
-}: InquiryProps) {
+export default function InquirySection({ form, setForm }: InquiryProps) {
   return (
     <Section title="문의 정보" icon="info">
       <div
@@ -67,16 +30,26 @@ export default function InquirySection({
       >
         {/* 이사 평 수 및 인원 수 입력 Input */}
         <Input
-          value={square}
-          onChange={(e) => setSquare(e.target.value)}
+          value={form.square}
+          onChange={(e) =>
+            setForm((prev) => ({
+              ...prev,
+              square: e.target.value,
+            }))
+          }
           label="평수 / 인원 수"
           required
           placeholder="예: 50평 / 30명"
         />
         {/* 이사 예정일 선택 DatePicker */}
         <DateInput
-          value={moveDate}
-          onChange={(val) => setMoveDate(val)}
+          value={form.moveDate}
+          onChange={(val) => {
+            setForm((prev) => ({
+              ...prev,
+              moveDate: val,
+            }));
+          }}
           label="이사 예정일"
           required
         />
@@ -84,21 +57,17 @@ export default function InquirySection({
 
       {/* 이사 유형 선택 Dropdown */}
       <Dropdown
-        value={moveType}
-        onChange={(val) => setMoveType(val)}
+        value={form.moveType}
+        onChange={(val) => {
+          setForm((prev) => ({
+            ...prev,
+            moveType: val,
+          }));
+        }}
         label="이사 서비스"
         required
         placeholder="서비스 유형을 선택하세요"
-        options={[
-          { label: "사무실/관공서 이사", value: "office_move" },
-          { label: "학교이사", value: "school_move" },
-          { label: "물류창고", value: "warehouse_move" },
-          { label: "병원이사", value: "hospital_move" },
-          { label: "실험실이사", value: "lab_move" },
-          { label: "공장이사", value: "factory_move" },
-          { label: "상업시설이사", value: "commercial_move" },
-          { label: "가정이사", value: "home_move" },
-        ]}
+        options={MOVE_TYPE}
       />
 
       <div
@@ -110,16 +79,26 @@ export default function InquirySection({
       >
         {/* 출발지 주소 입력 Input * 주소 검색 API 연동 예정  */}
         <Input
-          value={origin}
-          onChange={(e) => setOrigin(e.target.value)}
+          value={form.origin}
+          onChange={(e) =>
+            setForm((prev) => ({
+              ...prev,
+              origin: e.target.value,
+            }))
+          }
           label="출발지 주소"
           required
           placeholder="주소 검색"
         />
         {/* 출발지 상세 주소 입력 Input */}
         <Input
-          value={originDetail}
-          onChange={(e) => setOriginDetail(e.target.value)}
+          value={form.originDetail}
+          onChange={(e) =>
+            setForm((prev) => ({
+              ...prev,
+              originDetail: e.target.value,
+            }))
+          }
           placeholder="상세주소 입력 (선택)"
         />
       </div>
@@ -133,24 +112,39 @@ export default function InquirySection({
       >
         {/* 도착지 주소 입력 Input * 주소 검색 API 연동 예정  */}
         <Input
-          value={destination}
-          onChange={(e) => setDestination(e.target.value)}
+          value={form.destination}
+          onChange={(e) =>
+            setForm((prev) => ({
+              ...prev,
+              destination: e.target.value,
+            }))
+          }
           label="도착지 주소"
           required
           placeholder="주소 검색"
         />
         {/* 도착지 상세 주소 입력 Input */}
         <Input
-          value={destinationDetail}
-          onChange={(e) => setDestinationDetail(e.target.value)}
+          value={form.destinationDetail}
+          onChange={(e) =>
+            setForm((prev) => ({
+              ...prev,
+              destinationDetail: e.target.value,
+            }))
+          }
           placeholder="상세주소 입력 (선택)"
         />
       </div>
 
       {/* 문의 내용 입력 Textarea */}
       <Textarea
-        value={inquiry}
-        onChange={(e) => setInquiry(e.target.value)}
+        value={form.inquiry}
+        onChange={(e) =>
+          setForm((prev) => ({
+            ...prev,
+            inquiry: e.target.value,
+          }))
+        }
         label="문의 내용"
         placeholder="추가 문의사항이 있으시면 입력해 주세요"
       />
@@ -177,13 +171,23 @@ export default function InquirySection({
           <div className={css({ display: "flex", gap: "16px" })}>
             <Radio
               label="미포함"
-              checked={waste === "excluded"}
-              onClick={() => setWaste("excluded")}
+              checked={form.waste === "excluded"}
+              onClick={() =>
+                setForm((prev) => ({
+                  ...prev,
+                  waste: "excluded",
+                }))
+              }
             />
             <Radio
               label="포함"
-              checked={waste === "included"}
-              onClick={() => setWaste("included")}
+              checked={form.waste === "included"}
+              onClick={() =>
+                setForm((prev) => ({
+                  ...prev,
+                  waste: "included",
+                }))
+              }
             />
           </div>
         </div>
@@ -202,13 +206,23 @@ export default function InquirySection({
           <div className={css({ display: "flex", gap: "16px" })}>
             <Radio
               label="미포함"
-              checked={airconditioner === "excluded"}
-              onClick={() => setAirconditioner("excluded")}
+              checked={form.airconditioner === "excluded"}
+              onClick={() =>
+                setForm((prev) => ({
+                  ...prev,
+                  airconditioner: "excluded",
+                }))
+              }
             />
             <Radio
               label="포함"
-              checked={airconditioner === "included"}
-              onClick={() => setAirconditioner("included")}
+              checked={form.airconditioner === "included"}
+              onClick={() =>
+                setForm((prev) => ({
+                  ...prev,
+                  airconditioner: "included",
+                }))
+              }
             />
           </div>
         </div>
