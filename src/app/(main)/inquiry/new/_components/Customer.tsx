@@ -7,7 +7,7 @@ import Dropdown from "@/components/ui/Dropdown/Dropdown";
 import Button from "@/components/ui/Button/Button";
 import { formatPhoneNumber, onlyNumber } from "@/utils/format";
 
-// CustomerSection Props 타입 정의
+// Customer Props 타입 정의
 interface CustomerProps {
   clientCompany: string;
   setClientCompany: (v: string) => void;
@@ -22,7 +22,7 @@ interface CustomerProps {
 }
 
 // '고객 정보' 섹션 컴포넌트
-export default function CustomerSection({
+export default function Customer({
   clientCompany,
   setClientCompany,
   clientName,

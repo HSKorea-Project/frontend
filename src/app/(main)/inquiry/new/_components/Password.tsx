@@ -4,7 +4,7 @@ import { css } from "@/styled-system/css";
 import Section from "./Section";
 import Input from "@/components/ui/Input/Input";
 
-// PasswordSection Props 타입 정의
+// Password Props 타입 정의
 interface PasswordProps {
   password: string;
   setPassword: (v: string) => void;
@@ -13,7 +13,7 @@ interface PasswordProps {
 }
 
 // '게시물 비밀번호' 섹션 컴포넌트
-export default function PasswordSection({
+export default function Password({
   password,
   setPassword,
   confirmPassword,

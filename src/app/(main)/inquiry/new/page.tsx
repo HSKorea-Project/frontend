@@ -2,10 +2,10 @@
 
 import { css } from "@/styled-system/css";
 import { useState } from "react";
-import PasswordSection from "./_components/PasswordSection";
-import AgreementSection from "./_components/AgreementSection";
-import InquirySection from "./_components/InquirySection";
-import CustomerSection from "./_components/CustomerSection";
+import Password from "./_components/Password";
+import Agreement from "./_components/Agreement";
+import Inquiry from "./_components/Inquiry";
+import Customer from "./_components/Customer";
 
 // 견적문의 페이지
 export default function QuoteInquiryPage() {
@@ -98,7 +98,7 @@ export default function QuoteInquiryPage() {
             })}
           >
             {/* 고객 정보 */}
-            <CustomerSection
+            <Customer
               clientCompany={clientCompany}
               setClientCompany={setClientCompany}
               clientName={clientName}
@@ -112,7 +112,7 @@ export default function QuoteInquiryPage() {
             />
 
             {/* 문의 정보 */}
-            <InquirySection
+            <Inquiry
               square={square}
               setSquare={setSquare}
               moveDate={moveDate}
@@ -136,7 +136,7 @@ export default function QuoteInquiryPage() {
             />
 
             {/* 게시물 비밀번호 */}
-            <PasswordSection
+            <Password
               password={password}
               setPassword={setPassword}
               confirmPassword={confirmPassword}
@@ -144,7 +144,7 @@ export default function QuoteInquiryPage() {
             />
 
             {/* 약관 동의 */}
-            <AgreementSection privacy={privacy} setPrivacy={setPrivacy} />
+            <Agreement privacy={privacy} setPrivacy={setPrivacy} />
           </div>
         </div>
       </div>

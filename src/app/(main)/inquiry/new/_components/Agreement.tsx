@@ -6,14 +6,14 @@ import Button from "@/components/ui/Button/Button";
 import CheckBox from "@/components/ui/CheckBox/CheckBox";
 import { Dispatch, SetStateAction } from "react";
 
-// AgreementSection Props 타입 정의
+// Agreement Props 타입 정의
 interface AgreementProps {
   privacy: boolean;
   setPrivacy: Dispatch<SetStateAction<boolean>>;
 }
 
 // '약관 동의' 섹션 컴포넌트
-export default function AgreementSection({ privacy, setPrivacy }: AgreementProps) {
+export default function Agreement({ privacy, setPrivacy }: AgreementProps) {
   const handlePrivacyChange = () => {
     setPrivacy((prev) => !prev);
   };
