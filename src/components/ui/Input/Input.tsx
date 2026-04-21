@@ -18,10 +18,7 @@ export default function Input({ label, required, error, ...props }: InputProps) 
         flexDirection: "column",
         textAlign: "left",
         width: "100%",
-        gap: {
-          base: "8px",
-          // md: "8px",
-        },
+        gap: "8px",
       })}
     >
       {/* 라벨 */}
@@ -31,10 +28,7 @@ export default function Input({ label, required, error, ...props }: InputProps) 
             display: "flex",
             flexDirection: "row",
             gap: "4px",
-            fontSize: {
-              base: "12px",
-              // md: "16px",
-            },
+            fontSize: "12px",
             fontWeight: "regular",
             color: "gray.700",
           })}
@@ -85,10 +79,7 @@ export default function Input({ label, required, error, ...props }: InputProps) 
         <span
           className={css({
             color: "red.500",
-            fontSize: {
-              base: "12px",
-              // md: "12px",
-            },
+            fontSize: "12px",
             display: "flex",
             alignItems: "center",
             gap: "4px",

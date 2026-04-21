@@ -125,10 +125,6 @@ export default function Navbar({ className }: NavbarProps) {
             width: "40px",
             height: "40px",
             cursor: "pointer",
-            // _hover: {
-            //   bg: "gray.100",
-            //   borderRadius: "md",
-            // },
           })}
         >
           <Icon name="menu" />
