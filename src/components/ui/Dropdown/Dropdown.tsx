@@ -18,6 +18,7 @@ interface DropdownProps {
   className?: string;
   label?: string;
   required?: boolean;
+  disabled?: boolean;
 }
 
 // Dropdown 컴포넌트
@@ -29,6 +30,7 @@ export default function Dropdown({
   className,
   label,
   required,
+  disabled,
 }: DropdownProps) {
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -55,10 +57,7 @@ export default function Dropdown({
           flexDirection: "column",
           position: "relative",
           minWidth: "120px",
-          gap: {
-            base: "8px",
-            // md: "8px",
-          },
+          gap: "8px",
         }),
         className
       )}
@@ -70,9 +69,7 @@ export default function Dropdown({
             display: "flex",
             flexDirection: "row",
             gap: "4px",
-            fontSize: {
-              base: "12px",
-            },
+            fontSize: "12px",
             fontWeight: "regular",
             color: "gray.700",
           })}
@@ -91,7 +88,7 @@ export default function Dropdown({
       )}
 
       {/* 버튼 */}
-      <div
+      <button
         onClick={() => setOpen((prev) => !prev)}
         className={css({
           display: "flex",
@@ -102,9 +99,10 @@ export default function Dropdown({
           border: "1px solid",
           borderColor: "gray.300",
           borderRadius: "8px",
-          bg: "white",
+          bg: disabled ? "gray.100" : "white",
           cursor: "pointer",
         })}
+        disabled={disabled}
       >
         <span
           className={css({
@@ -116,7 +114,7 @@ export default function Dropdown({
         </span>
 
         <Icon name="down" />
-      </div>
+      </button>
 
       {/* 드롭다운 */}
       {open && (

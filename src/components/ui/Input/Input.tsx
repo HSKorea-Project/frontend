@@ -56,19 +56,10 @@ export default function Input({ label, required, error, ...props }: InputProps) 
       <input
         {...props}
         className={css({
-          px: {
-            base: "16px",
-            // md: "16px",
-          },
+          px: "16px",
           py: "12px",
-          fontSize: {
-            base: "12px",
-            // md: "12px",
-          },
-          borderRadius: {
-            base: "8px",
-            // md: "8px",
-          },
+          fontSize: "12px",
+          borderRadius: "8px",
           border: "1px solid",
           borderColor: error ? "red.500" : "gray.300",
 
