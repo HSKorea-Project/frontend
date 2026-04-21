@@ -10,6 +10,7 @@ import Textarea from "@/components/ui/Textarea/Textarea";
 import DateInput from "./DateInput";
 import { QuoteForm } from "../../_types/quote";
 import { MOVE_TYPE } from "@/constants/moveType";
+import AddressInput from "./AddressInput";
 
 // InquirySection Props 타입 정의
 interface InquiryProps {
@@ -70,71 +71,44 @@ export default function InquirySection({ form, setForm }: InquiryProps) {
         options={MOVE_TYPE}
       />
 
-      <div
-        className={css({
-          display: "flex",
-          flexDirection: "column",
-          gap: "8px",
-        })}
-      >
-        {/* 출발지 주소 입력 Input * 주소 검색 API 연동 예정  */}
-        <Input
-          value={form.origin}
-          onChange={(e) =>
-            setForm((prev) => ({
-              ...prev,
-              origin: e.target.value,
-            }))
-          }
-          label="출발지 주소"
-          required
-          placeholder="주소 검색"
-        />
-        {/* 출발지 상세 주소 입력 Input */}
-        <Input
-          value={form.originDetail}
-          onChange={(e) =>
-            setForm((prev) => ({
-              ...prev,
-              originDetail: e.target.value,
-            }))
-          }
-          placeholder="상세주소 입력 (선택)"
-        />
-      </div>
+      {/* 주소 검색 기능 추가 예정 */}
+      <AddressInput
+        label="출발지 주소"
+        value={form.origin}
+        detailValue={form.originDetail}
+        required
+        onChange={(v) =>
+          setForm((prev) => ({
+            ...prev,
+            origin: v,
+          }))
+        }
+        onDetailChange={(v) =>
+          setForm((prev) => ({
+            ...prev,
+            originDetail: v,
+          }))
+        }
+      />
 
-      <div
-        className={css({
-          display: "flex",
-          flexDirection: "column",
-          gap: "8px",
-        })}
-      >
-        {/* 도착지 주소 입력 Input * 주소 검색 API 연동 예정  */}
-        <Input
-          value={form.destination}
-          onChange={(e) =>
-            setForm((prev) => ({
-              ...prev,
-              destination: e.target.value,
-            }))
-          }
-          label="도착지 주소"
-          required
-          placeholder="주소 검색"
-        />
-        {/* 도착지 상세 주소 입력 Input */}
-        <Input
-          value={form.destinationDetail}
-          onChange={(e) =>
-            setForm((prev) => ({
-              ...prev,
-              destinationDetail: e.target.value,
-            }))
-          }
-          placeholder="상세주소 입력 (선택)"
-        />
-      </div>
+      <AddressInput
+        label="도착지 주소"
+        value={form.destination}
+        detailValue={form.destinationDetail}
+        required
+        onChange={(v) =>
+          setForm((prev) => ({
+            ...prev,
+            destination: v,
+          }))
+        }
+        onDetailChange={(v) =>
+          setForm((prev) => ({
+            ...prev,
+            destinationDetail: v,
+          }))
+        }
+      />
 
       {/* 문의 내용 입력 Textarea */}
       <Textarea
