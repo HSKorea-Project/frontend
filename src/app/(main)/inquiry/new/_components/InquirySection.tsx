@@ -1,7 +1,7 @@
 "use client";
 
 import { css } from "@/styled-system/css";
-import Card from "./Card";
+import Section from "./Section";
 import Upload from "./Upload";
 import Radio from "@/components/ui/Radio/Radio";
 import Input from "@/components/ui/Input/Input";
@@ -57,7 +57,7 @@ export default function InquirySection({
   setAirconditioner,
 }: InquiryProps) {
   return (
-    <Card title="문의 정보" icon="info">
+    <Section title="문의 정보" icon="info">
       <div
         className={css({
           display: "flex",
@@ -215,6 +215,6 @@ export default function InquirySection({
       </div>
       {/* 업로드 박스 */}
       <Upload label="파일 업로드" />
-    </Card>
+    </Section>
   );
 }

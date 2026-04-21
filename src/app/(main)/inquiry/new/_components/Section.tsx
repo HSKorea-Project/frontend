@@ -3,15 +3,15 @@
 import { css } from "@/styled-system/css";
 import Icon from "@/components/ui/Icon/Icon";
 
-// Card Props 타입 정의
-interface CardProps {
+// Section Props 타입 정의
+interface SectionProps {
   title: string;
   icon?: string;
   children: React.ReactNode;
 }
 
-// Card 컴포넌트
-export default function Card({ title, icon, children }: CardProps) {
+// Section 컴포넌트
+export default function Section({ title, icon, children }: SectionProps) {
   return (
     <div
       className={css({

@@ -1,7 +1,7 @@
 "use client";
 
 import { css } from "@/styled-system/css";
-import Card from "./Card";
+import Section from "./Section";
 import Input from "@/components/ui/Input/Input";
 
 // PasswordSection Props 타입 정의
@@ -23,7 +23,7 @@ export default function PasswordSection({
   const isConfirmPwError = confirmPassword.length > 0 && password !== confirmPassword;
 
   return (
-    <Card title="게시물 비밀번호" icon="password">
+    <Section title="게시물 비밀번호" icon="password">
       <p
         className={css({
           fontWeight: "regular",
@@ -69,6 +69,6 @@ export default function PasswordSection({
           error={isConfirmPwError ? "비밀번호가 일치하지 않습니다." : undefined}
         />
       </div>
-    </Card>
+    </Section>
   );
 }

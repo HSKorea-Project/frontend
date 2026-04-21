@@ -1,7 +1,7 @@
 "use client";
 
 import { css } from "@/styled-system/css";
-import Card from "./Card";
+import Section from "./Section";
 import Button from "@/components/ui/Button/Button";
 import CheckBox from "@/components/ui/CheckBox/CheckBox";
 import { Dispatch, SetStateAction } from "react";
@@ -19,7 +19,7 @@ export default function AgreementSection({ privacy, setPrivacy }: AgreementProps
   };
 
   return (
-    <Card title="약관 동의" icon="confirm">
+    <Section title="약관 동의" icon="confirm">
       <div
         className={css({
           display: "flex",
@@ -71,6 +71,6 @@ export default function AgreementSection({ privacy, setPrivacy }: AgreementProps
       <Button variant="primary" fullWidth className={css({ maxWidth: "200px", marginX: "auto" })}>
         문의하기
       </Button>
-    </Card>
+    </Section>
   );
 }

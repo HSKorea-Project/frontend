@@ -1,7 +1,7 @@
 "use client";
 
 import { css } from "@/styled-system/css";
-import Card from "./Card";
+import Section from "./Section";
 import Input from "@/components/ui/Input/Input";
 import Dropdown from "@/components/ui/Dropdown/Dropdown";
 import Button from "@/components/ui/Button/Button";
@@ -35,7 +35,7 @@ export default function CustomerSection({
   setCertification,
 }: CustomerProps) {
   return (
-    <Card title="고객 정보" icon="user">
+    <Section title="고객 정보" icon="user">
       {/* 고객사명 input */}
       <Input
         value={clientCompany}
@@ -152,6 +152,6 @@ export default function CustomerSection({
           </Button>
         </div>
       </div>
-    </Card>
+    </Section>
   );
 }
