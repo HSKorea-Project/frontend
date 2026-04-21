@@ -5,6 +5,7 @@ import Section from "./Section";
 import Input from "@/components/ui/Input/Input";
 import { QuoteForm } from "../../_types/quote";
 import { SetStateAction } from "react";
+import { validateConfirmPassword, validatePassword } from "@/utils/valid";
 
 // Password Props 타입 정의
 interface PasswordProps {
@@ -14,9 +15,8 @@ interface PasswordProps {
 
 // '게시물 비밀번호' 섹션 컴포넌트
 export default function Password({ form, setForm }: PasswordProps) {
-  const isPwError = form.password.length > 0 && form.password.length < 4;
-  const isConfirmPwError =
-    form.confirmPassword.length > 0 && form.password !== form.confirmPassword;
+  const passwordError = validatePassword(form.password);
+  const confirmPasswordError = validateConfirmPassword(form.password, form.confirmPassword);
 
   return (
     <Section title="게시물 비밀번호" icon="password">
@@ -53,8 +53,9 @@ export default function Password({ form, setForm }: PasswordProps) {
           label="비밀번호"
           required
           placeholder="비밀번호를 입력하세요"
-          error={isPwError ? "비밀번호는 최소 4자리 이상이어야 합니다." : undefined}
+          error={passwordError ?? undefined}
         />
+
         {/* 비밀번호 재입력 Input */}
         <Input
           value={form.confirmPassword}
@@ -68,7 +69,7 @@ export default function Password({ form, setForm }: PasswordProps) {
           label="비밀번호 확인"
           required
           placeholder="비밀번호를 다시 입력하세요"
-          error={isConfirmPwError ? "비밀번호가 일치하지 않습니다." : undefined}
+          error={confirmPasswordError ?? undefined}
         />
       </div>
     </Section>
