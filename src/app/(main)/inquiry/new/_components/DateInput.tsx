@@ -5,7 +5,7 @@ import { ko } from "date-fns/locale";
 import { format, isSameDay, startOfDay } from "date-fns";
 import { css } from "@/styled-system/css";
 import "react-datepicker/dist/react-datepicker.css";
-import "@/styled-system/css/calendar.css";
+import "@/styles/calendar.css";
 import Icon from "@/components/ui/Icon/Icon";
 import { forwardRef } from "react";
 
