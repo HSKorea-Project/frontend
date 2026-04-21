@@ -30,7 +30,7 @@ export default function Customer({ form, setForm }: CustomerProps) {
     console.log("인증번호 요청");
 
     // 쿨타임 시작 (60초)
-    setCooldown(10);
+    setCooldown(60);
 
     timerRef.current = setInterval(() => {
       setCooldown((prev) => {
