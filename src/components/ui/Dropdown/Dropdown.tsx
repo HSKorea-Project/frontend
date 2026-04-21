@@ -1,7 +1,7 @@
 "use client";
 
 import { css, cx } from "@/styled-system/css";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useId } from "react";
 import Icon from "@/components/ui/Icon/Icon";
 
 interface Option {
@@ -32,6 +32,7 @@ export default function Dropdown({
   required,
   disabled,
 }: DropdownProps) {
+  const id = useId();
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
@@ -65,6 +66,7 @@ export default function Dropdown({
       {/* 라벨 */}
       {label && (
         <label
+          htmlFor={id}
           className={css({
             display: "flex",
             flexDirection: "row",
@@ -89,6 +91,7 @@ export default function Dropdown({
 
       {/* 버튼 */}
       <button
+        id={id}
         type="button"
         onClick={() => setOpen((prev) => !prev)}
         className={css({
