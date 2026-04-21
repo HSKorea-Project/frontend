@@ -1,5 +1,5 @@
 import { css } from "@/styled-system/css";
-import { TextareaHTMLAttributes } from "react";
+import { TextareaHTMLAttributes, useId } from "react";
 
 // Textarea props 타입 정의
 interface TextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
@@ -9,6 +9,8 @@ interface TextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
 
 // Textarea 컴포넌트
 export default function Textarea({ label, required, ...props }: TextareaProps) {
+  const id = useId();
+
   return (
     <div
       className={css({
@@ -16,23 +18,18 @@ export default function Textarea({ label, required, ...props }: TextareaProps) {
         flexDirection: "column",
         textAlign: "left",
         width: "100%",
-        gap: {
-          base: "8px",
-          // md: "8px",
-        },
+        gap: "8px",
       })}
     >
       {/* 라벨 */}
       {label && (
         <label
+          htmlFor={id}
           className={css({
             display: "flex",
             flexDirection: "row",
             gap: "4px",
-            fontSize: {
-              base: "12px",
-              // md: "16px",
-            },
+            fontSize: "12px",
             fontWeight: "regular",
             color: "gray.700",
           })}
@@ -52,21 +49,13 @@ export default function Textarea({ label, required, ...props }: TextareaProps) {
 
       {/* Textarea */}
       <textarea
+        id={id}
         {...props}
         className={css({
-          px: {
-            base: "16px",
-            // md: "16px",
-          },
+          px: "16px",
           py: "12px",
-          fontSize: {
-            base: "12px",
-            // md: "12px",
-          },
-          borderRadius: {
-            base: "8px",
-            // md: "8px",
-          },
+          fontSize: "12px",
+          borderRadius: "8px",
           border: "1px solid",
           borderColor: "gray.300",
 
