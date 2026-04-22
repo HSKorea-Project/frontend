@@ -26,11 +26,19 @@ export const Gray: Story = {
   },
 };
 
+// 빨간색
+export const Red: Story = {
+  args: {
+    content: "접수 취소",
+    type: "red",
+  },
+};
+
 // 작은 사이즈
 export const Small: Story = {
   args: {
     content: "NEW",
-    type: "primary",
+    type: "full",
     size: "small",
   },
 };
