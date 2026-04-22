@@ -1,3 +1,5 @@
+import { InquiryState } from "@/app/(main)/inquiry/_types/inquiry";
+
 // 문의내역 목데이터
 export const inquiryMockData = [
   {
@@ -8,6 +10,7 @@ export const inquiryMockData = [
     moveDate: "2026.04.15",
     createdAt: "2026.03.27 09:41",
     isNew: true,
+    state: InquiryState.PENDING,
   },
   {
     id: 182,
@@ -17,6 +20,7 @@ export const inquiryMockData = [
     moveDate: "2026.04.10",
     createdAt: "2026.03.26 14:22",
     isNew: true,
+    state: InquiryState.COMPLETED,
   },
   {
     id: 183,
@@ -26,6 +30,7 @@ export const inquiryMockData = [
     moveDate: "2026.04.01",
     createdAt: "2026.03.25 11:05",
     isNew: false,
+    state: InquiryState.COMPLETED,
   },
   {
     id: 184,
@@ -35,6 +40,7 @@ export const inquiryMockData = [
     moveDate: "2026.03.30",
     createdAt: "2026.03.24 16:48",
     isNew: false,
+    state: InquiryState.CANCELED,
   },
   {
     id: 185,
@@ -44,6 +50,7 @@ export const inquiryMockData = [
     moveDate: "2026.03.28",
     createdAt: "2026.03.23 10:30",
     isNew: false,
+    state: InquiryState.COMPLETED,
   },
   {
     id: 186,
@@ -53,6 +60,7 @@ export const inquiryMockData = [
     moveDate: "2026.03.25",
     createdAt: "2026.03.22 09:12",
     isNew: false,
+    state: InquiryState.PENDING,
   },
   {
     id: 187,
@@ -62,6 +70,7 @@ export const inquiryMockData = [
     moveDate: "2026.03.20",
     createdAt: "2026.03.21 15:55",
     isNew: false,
+    state: InquiryState.COMPLETED,
   },
   {
     id: 188,
@@ -71,6 +80,7 @@ export const inquiryMockData = [
     moveDate: "2026.03.18",
     createdAt: "2026.03.20 13:22",
     isNew: false,
+    state: InquiryState.COMPLETED,
   },
   {
     id: 189,
@@ -80,6 +90,7 @@ export const inquiryMockData = [
     moveDate: "2026.03.15",
     createdAt: "2026.03.19 10:09",
     isNew: false,
+    state: InquiryState.CANCELED,
   },
   {
     id: 190,
@@ -89,6 +100,7 @@ export const inquiryMockData = [
     moveDate: "2026.03.12",
     createdAt: "2026.03.18 08:54",
     isNew: false,
+    state: InquiryState.COMPLETED,
   },
   {
     id: 191,
@@ -98,6 +110,7 @@ export const inquiryMockData = [
     moveDate: "2026.03.10",
     createdAt: "2026.03.17 13:20",
     isNew: false,
+    state: InquiryState.PENDING,
   },
   {
     id: 192,
@@ -107,6 +120,7 @@ export const inquiryMockData = [
     moveDate: "2026.03.08",
     createdAt: "2026.03.16 09:33",
     isNew: false,
+    state: InquiryState.COMPLETED,
   },
   {
     id: 193,
@@ -116,6 +130,7 @@ export const inquiryMockData = [
     moveDate: "2026.03.06",
     createdAt: "2026.03.15 14:11",
     isNew: false,
+    state: InquiryState.CANCELED,
   },
   {
     id: 194,
@@ -125,6 +140,7 @@ export const inquiryMockData = [
     moveDate: "2026.03.05",
     createdAt: "2026.03.14 11:02",
     isNew: false,
+    state: InquiryState.COMPLETED,
   },
   {
     id: 195,
@@ -134,6 +150,7 @@ export const inquiryMockData = [
     moveDate: "2026.03.03",
     createdAt: "2026.03.13 15:27",
     isNew: false,
+    state: InquiryState.COMPLETED,
   },
   {
     id: 196,
@@ -143,6 +160,7 @@ export const inquiryMockData = [
     moveDate: "2026.03.01",
     createdAt: "2026.03.12 10:45",
     isNew: false,
+    state: InquiryState.PENDING,
   },
   {
     id: 197,
@@ -152,6 +170,7 @@ export const inquiryMockData = [
     moveDate: "2026.02.28",
     createdAt: "2026.03.11 16:18",
     isNew: false,
+    state: InquiryState.COMPLETED,
   },
   {
     id: 198,
@@ -161,5 +180,6 @@ export const inquiryMockData = [
     moveDate: "2026.02.26",
     createdAt: "2026.03.10 09:50",
     isNew: false,
+    state: InquiryState.CANCELED,
   },
 ];

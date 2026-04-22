@@ -1,6 +1,7 @@
-import Icon from "@/components/ui/Icon/Icon";
+// import Icon from "@/components/ui/Icon/Icon";
 import { css } from "@/styled-system/css";
 import Link from "next/link";
+import CloseIcon from "@/assets/svgs/close.svg";
 
 // Drawer Props 타입 정의
 interface DrawerProps {
@@ -54,8 +55,7 @@ export default function Drawer({ open, onClose }: DrawerProps) {
             alignItems: "center",
             borderBottom: "solid 1px",
             borderColor: "gray.100",
-            paddingX: "20px",
-            paddingY: "12px",
+            p: "12px",
           })}
         >
           {/* 닫힘 버튼 */}
@@ -67,7 +67,7 @@ export default function Drawer({ open, onClose }: DrawerProps) {
               height: "32px",
             })}
           >
-            <Icon name="close" />
+            <CloseIcon />
           </button>
         </div>
 
@@ -81,6 +81,7 @@ export default function Drawer({ open, onClose }: DrawerProps) {
         >
           <Link
             href="/about"
+            onClick={onClose}
             className={css({
               textAlign: "center",
               py: "16px",
@@ -98,6 +99,7 @@ export default function Drawer({ open, onClose }: DrawerProps) {
           </Link>
           <Link
             href="/service"
+            onClick={onClose}
             className={css({
               textAlign: "center",
               py: "16px",
@@ -115,6 +117,7 @@ export default function Drawer({ open, onClose }: DrawerProps) {
           </Link>
           <Link
             href="/inquiry"
+            onClick={onClose}
             className={css({
               textAlign: "center",
               py: "16px",
@@ -132,6 +135,7 @@ export default function Drawer({ open, onClose }: DrawerProps) {
           </Link>
           <Link
             href="/inquiry/new"
+            onClick={onClose}
             className={css({
               textAlign: "center",
               py: "16px",

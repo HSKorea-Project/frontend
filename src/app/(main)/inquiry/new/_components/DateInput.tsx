@@ -6,8 +6,9 @@ import { format, isSameDay, startOfDay } from "date-fns";
 import { css } from "@/styled-system/css";
 import "react-datepicker/dist/react-datepicker.css";
 import "@/styles/calendar.css";
-import Icon from "@/components/ui/Icon/Icon";
 import { forwardRef } from "react";
+import RightCalendarIcon from "@/assets/svgs/right-calendar.svg";
+import LeftCalendarIcon from "@/assets/svgs/left-calendar.svg";
 
 interface DateInputProps {
   label?: string;
@@ -52,7 +53,7 @@ const CustomInput = forwardRef<
         {hasValue ? value : placeholder}
       </span>
 
-      <Icon name="calendar" />
+      {/* <Icon name="calendar" /> */}
     </div>
   );
 });
@@ -126,7 +127,7 @@ export default function DateInput({
             })}
           >
             <button type="button" onClick={decreaseMonth}>
-              <Icon name="left-calendar" />
+              <LeftCalendarIcon />
             </button>
 
             <span
@@ -140,7 +141,7 @@ export default function DateInput({
             </span>
 
             <button type="button" onClick={increaseMonth}>
-              <Icon name="right-calendar" />
+              <RightCalendarIcon />
             </button>
           </div>
         )}

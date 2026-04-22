@@ -1,6 +1,6 @@
 import { css } from "@/styled-system/css";
 import { InputHTMLAttributes } from "react";
-import Icon from "@/components/ui/Icon/Icon";
+import ErrorIcon from "@/assets/svgs/error.svg";
 
 // Input props 타입 정의
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
@@ -85,7 +85,7 @@ export default function Input({ label, required, error, ...props }: InputProps) 
             gap: "4px",
           })}
         >
-          <Icon name="error" /> {error}
+          <ErrorIcon /> {error}
         </span>
       )}
     </div>

@@ -3,38 +3,33 @@
 import Button from "@/components/ui/Button/Button";
 import Input from "@/components/ui/Input/Input";
 import { css } from "@/styled-system/css";
-import { useRouter } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import { useState } from "react";
 
-// 문의내역 비밀번호 입력 페이지 Props 타입 정의
-interface InquiryPasswordPageProps {
-  params: {
-    id: string;
-  };
-}
-
 // 문의내역 비밀번호 입력 페이지
-export default function InquiryPasswordPage({ params }: InquiryPasswordPageProps) {
+export default function InquiryPasswordPage() {
   const router = useRouter();
+  const params = useParams<{ id: string }>();
+  const id = params.id;
   const [password, setPassword] = useState<string>("");
   const [isError, setIsError] = useState<boolean>(false);
 
   // 목록으로 이동
-  function goToInquiryList() {
+  const goToInquiryList = () => {
     router.push("/inquiry");
-  }
+  };
 
   // 확인: 비밀번호 일치 시 이동
-  function handleSubmit(e: React.FormEvent) {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
     // 임시
     if (password === "1234") {
-      router.push(`/inquiry/${params.id}`);
+      router.push(`/inquiry/${id}`);
     } else {
       setIsError(true);
     }
-  }
+  };
 
   return (
     <div

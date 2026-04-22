@@ -11,6 +11,7 @@ import DateInput from "./DateInput";
 import { QuoteForm } from "../../_types/quote";
 import { MOVE_TYPE } from "@/constants/moveType";
 import AddressInput from "./AddressInput";
+import InfoIcon from "@/assets/svgs/info.svg";
 
 // InquirySection Props 타입 정의
 interface InquiryProps {
@@ -21,7 +22,7 @@ interface InquiryProps {
 // '문의 정보' 섹션 컴포넌트
 export default function InquirySection({ form, setForm }: InquiryProps) {
   return (
-    <Section title="문의 정보" icon="info">
+    <Section title="문의 정보" icon={InfoIcon}>
       <div
         id="moveDate"
         className={css({

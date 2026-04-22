@@ -6,6 +6,7 @@ import Input from "@/components/ui/Input/Input";
 import { QuoteForm } from "../../_types/quote";
 import { SetStateAction } from "react";
 import { validateConfirmPassword, validatePassword } from "@/utils/validate";
+import PasswordIcon from "@/assets/svgs/password.svg";
 
 // Password Props 타입 정의
 interface PasswordProps {
@@ -19,7 +20,7 @@ export default function Password({ form, setForm }: PasswordProps) {
   const confirmPasswordError = validateConfirmPassword(form.password, form.confirmPassword);
 
   return (
-    <Section title="게시물 비밀번호" icon="password">
+    <Section title="게시물 비밀번호" icon={PasswordIcon}>
       <p
         className={css({
           fontWeight: "regular",

@@ -1,17 +1,16 @@
 "use client";
 
 import { css } from "@/styled-system/css";
-import Icon from "@/components/ui/Icon/Icon";
 
 // Section Props 타입 정의
 interface SectionProps {
   title: string;
-  icon?: string;
+  icon?: React.ComponentType<React.SVGProps<SVGSVGElement>>;
   children: React.ReactNode;
 }
 
 // Section 컴포넌트
-export default function Section({ title, icon, children }: SectionProps) {
+export default function Section({ title, icon: Icon, children }: SectionProps) {
   return (
     <div
       className={css({
@@ -37,7 +36,7 @@ export default function Section({ title, icon, children }: SectionProps) {
           alignItems: "center",
           alignContent: "end",
           borderBottom: "1px solid",
-          borderColor: "gray.200",
+          borderColor: "orange.500",
           pb: "12px",
         })}
       >
@@ -47,11 +46,11 @@ export default function Section({ title, icon, children }: SectionProps) {
             alignItems: "center",
             gap: "8px",
             fontWeight: "bold",
-            color: "orange.700",
+            color: "orange.500",
             fontSize: "16px",
           })}
         >
-          {icon && <Icon name={icon} />}
+          {Icon && <Icon width={16} height={16} />}
           {title}
         </p>
       </div>
