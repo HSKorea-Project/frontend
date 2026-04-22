@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { css } from "@/styled-system/css";
+import { css, cx } from "@/styled-system/css";
 import Drawer from "./Drawer";
 import Link from "next/link";
 import Button from "@/components/ui/Button/Button";
@@ -19,30 +19,31 @@ export default function Navbar({ className }: NavbarProps) {
   return (
     <>
       <nav
-        className={`${css({
-          display: "grid",
-          gridTemplateColumns: "160px 1fr 160px",
-          alignItems: "center",
-          px: {
-            base: "20px",
-            lg: "32px",
-          },
-          py: {
-            base: "8px",
-            lg: "16px",
-          },
-          borderBottom: "1px solid",
-          borderColor: "gray.200",
-          bg: "white",
-        })} 
-        ${className}`}
+        className={cx(
+          css({
+            display: "grid",
+            gridTemplateColumns: { base: "1fr 1fr", md: "160px 1fr 160px" },
+            alignItems: "center",
+            px: {
+              base: "20px",
+              lg: "32px",
+            },
+            py: {
+              base: "8px",
+              lg: "16px",
+            },
+            borderBottom: "1px solid",
+            borderColor: "gray.200",
+            bg: "white",
+          }),
+          className
+        )}
       >
         {/* 로고 */}
         <Link
           href="/"
           className={css({
             display: "flex",
-            alignItems: "center",
           })}
         >
           <LogoIcon
@@ -131,9 +132,8 @@ export default function Navbar({ className }: NavbarProps) {
         <button
           onClick={() => setOpen(true)}
           className={css({
-            display: { base: "block", md: "none" },
-            width: "40px",
-            height: "40px",
+            display: { base: "flex", md: "none" },
+            justifyContent: "end",
             cursor: "pointer",
           })}
         >
