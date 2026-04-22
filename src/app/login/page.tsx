@@ -48,7 +48,7 @@ export default function LoginPage() {
           overflowY: "hidden",
 
           border: "1px solid",
-          borderColor: "green.100",
+          borderColor: "orange.100",
           borderRadius: "16px",
 
           bg: "white",
@@ -77,7 +77,7 @@ export default function LoginPage() {
               width: "56px",
               height: "56px",
 
-              bg: "green.100",
+              bg: "orange.100",
               borderRadius: "lg",
 
               fontSize: "24px",

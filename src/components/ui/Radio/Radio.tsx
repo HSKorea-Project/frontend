@@ -27,7 +27,7 @@ export default function Radio({ checked, label, onClick }: RadioProps) {
           height: "16px",
           borderRadius: "full",
           border: "1px solid",
-          borderColor: checked ? "green.500" : "black",
+          borderColor: checked ? "orange.500" : "black",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
@@ -39,7 +39,7 @@ export default function Radio({ checked, label, onClick }: RadioProps) {
               width: "10px",
               height: "10px",
               borderRadius: "full",
-              bg: "green.500",
+              bg: "orange.500",
             })}
           />
         )}

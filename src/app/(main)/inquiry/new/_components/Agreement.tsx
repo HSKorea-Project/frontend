@@ -53,7 +53,7 @@ export default function Agreement({ form, setForm }: AgreementProps) {
         </p>
         <p
           className={css({
-            color: "green.600",
+            color: "orange.600",
             textDecoration: "underline",
             fontSize: "12px",
             cursor: "pointer",

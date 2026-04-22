@@ -23,7 +23,7 @@ export default function CheckBox({ size = 20, checked, onClick }: CheckBoxProps)
 
         borderRadius: "4px",
         border: checked ? "" : "1px solid black",
-        bg: checked ? "green.500" : "",
+        bg: checked ? "orange.500" : "",
       })}
     >
       {checked && <Icon name="check" />}

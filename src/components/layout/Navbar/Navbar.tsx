@@ -40,7 +40,7 @@ export default function Navbar({ className }: NavbarProps) {
         <span
           className={css({
             fontWeight: "bold",
-            color: "green.500",
+            color: "orange.500",
           })}
         >
           HSKorea

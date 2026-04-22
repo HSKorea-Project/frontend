@@ -33,12 +33,12 @@ export default function InquiryTable({ data }: InquiryTableProps) {
         {/* Table Header */}
         <thead
           className={css({
-            bg: "green.50",
+            bg: "orange.50",
             borderBottom: "1.5px solid",
-            borderColor: "green.300",
+            borderColor: "orange.300",
 
             fontWeight: "bold",
-            color: "green.700",
+            color: "orange.700",
           })}
         >
           <TableRow>

@@ -35,10 +35,10 @@ export default function Button({
         fontSize: "12px",
 
         ...(variant === "primary" && {
-          bg: "green.500",
+          bg: "orange.500",
           color: "white",
           _hover: {
-            bg: "green.600",
+            bg: "orange.600",
           },
         }),
 

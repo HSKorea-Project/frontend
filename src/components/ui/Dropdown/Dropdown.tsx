@@ -80,7 +80,7 @@ export default function Dropdown({
           {required && (
             <span
               className={css({
-                color: "green.500",
+                color: "orange.500",
               })}
             >
               *
@@ -152,12 +152,12 @@ export default function Dropdown({
                 cursor: "pointer",
 
                 _hover: {
-                  bg: "green.50",
-                  color: "green.700",
+                  bg: "orange.50",
+                  color: "orange.700",
                 },
 
-                bg: value === option.value ? "green.50" : "white",
-                color: value === option.value ? "green.700" : "gray.900",
+                bg: value === option.value ? "orange.50" : "white",
+                color: value === option.value ? "orange.700" : "gray.900",
               })}
             >
               {option.label}
