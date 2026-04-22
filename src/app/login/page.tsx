@@ -5,6 +5,7 @@ import Input from "@/components/ui/Input/Input";
 import { css } from "@/styled-system/css";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import LogoIcon from "@/assets/svgs/logo.svg";
 
 // 로그인
 export default function LoginPage() {
@@ -72,8 +73,7 @@ export default function LoginPage() {
             rowGap: "24px",
           })}
         >
-          <img
-            src="/logo.svg"
+          <LogoIcon
             className={css({
               height: "100%",
             })}
