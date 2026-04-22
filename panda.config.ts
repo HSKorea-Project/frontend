@@ -40,7 +40,7 @@ export default defineConfig({
             900: { value: "#212529" },
           },
           error: {
-            50: { value: "#F8F9FA" },
+            50: { value: "#FEF2F2" },
             500: { value: "#E05252" },
           },
         },
