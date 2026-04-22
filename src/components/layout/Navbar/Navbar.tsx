@@ -37,14 +37,20 @@ export default function Navbar({ className }: NavbarProps) {
         ${className}`}
       >
         {/* 로고 */}
-        <span
+        <Link
+          href="/"
           className={css({
-            fontWeight: "bold",
-            color: "orange.500",
+            display: "flex",
+            alignItems: "center",
           })}
         >
-          HSKorea
-        </span>
+          <img
+            src="/logo.svg"
+            className={css({
+              height: "100%",
+            })}
+          />
+        </Link>
 
         {/* Desktop: 메뉴 */}
         <div
