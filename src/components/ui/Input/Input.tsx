@@ -37,7 +37,7 @@ export default function Input({ label, required, error, ...props }: InputProps) 
           {required && (
             <span
               className={css({
-                color: "orange.500",
+                color: "orange.400",
               })}
             >
               *
@@ -68,8 +68,8 @@ export default function Input({ label, required, error, ...props }: InputProps) 
           },
 
           _focus: {
-            borderColor: error ? "error.500" : "orange.500",
-            boxShadow: error ? "0 0 0 3px rgba(224,82,82,0.2)" : "0 0 0 3px rgba(46,158,97,0.2)",
+            borderColor: error ? "error.500" : "orange.400",
+            boxShadow: error ? "0 0 0 3px rgba(224,82,82,0.2)" : "0 0 0 3px rgba(240,165,0,0.2)",
           },
         })}
       />

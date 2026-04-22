@@ -34,7 +34,7 @@ export default function LoginPage() {
 
         paddingX: "30px",
 
-        background: "linear-gradient(to bottom right, #F0FAF4 0%, #FFFFFF 60%)",
+        background: "linear-gradient(to bottom right, #FEF7E6 0%, #FFFFFF 60%)",
 
         display: "flex",
         alignItems: "center",
@@ -43,8 +43,7 @@ export default function LoginPage() {
     >
       <div
         className={css({
-          width: "560px",
-          height: { base: "75vh", md: "65vh" },
+          width: "420px",
           overflowY: "hidden",
 
           border: "1px solid",
@@ -54,7 +53,8 @@ export default function LoginPage() {
           bg: "white",
           shadow: "0px 8px 32px 0px #00000010",
 
-          p: { base: "30px", md: "80px" },
+          px: { base: "30px", md: "40px" },
+          py: { base: "30px", md: "48px" },
 
           display: "flex",
           flexDirection: "column",
@@ -69,51 +69,41 @@ export default function LoginPage() {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            rowGap: "4px",
+            rowGap: "24px",
           })}
         >
+          <img
+            src="/logo.svg"
+            className={css({
+              height: "100%",
+            })}
+          />
           <div
             className={css({
-              width: "56px",
-              height: "56px",
-
-              bg: "orange.100",
-              borderRadius: "lg",
-
-              fontSize: "24px",
-
               display: "flex",
+              flexDirection: "column",
               alignItems: "center",
-              justifyContent: "center",
-
-              marginBottom: "10px",
+              rowGap: "8px",
             })}
           >
-            🔐
+            <h3
+              className={css({
+                fontWeight: "bold",
+                color: "gray.900",
+                fontSize: "24px",
+              })}
+            >
+              관리자 로그인
+            </h3>
+            <p
+              className={css({
+                color: "gray.500",
+                fontSize: "12px",
+              })}
+            >
+              관리자 계정으로 로그인하세요
+            </p>
           </div>
-          <h3
-            className={css({
-              fontWeight: "bold",
-              color: "gray.900",
-              fontSize: {
-                base: "20px",
-                md: "22px",
-              },
-            })}
-          >
-            관리자 로그인
-          </h3>
-          <p
-            className={css({
-              color: "gray.500",
-              fontSize: {
-                base: "12px",
-                md: "14px",
-              },
-            })}
-          >
-            관리자 계정으로 로그인하세요
-          </p>
         </div>
 
         {/* 아이디/비밀번호 입력 폼 */}
@@ -167,7 +157,7 @@ export default function LoginPage() {
         <p
           className={css({
             color: "gray.500",
-            fontSize: { base: "12px", md: "14px" },
+            fontSize: "12px",
           })}
         >
           관리자 계정 문의는 시스템 담당자에게 연락하세요

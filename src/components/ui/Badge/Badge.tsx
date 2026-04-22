@@ -26,7 +26,7 @@ export default function Badge({ content, type = "primary", size = "default" }: B
         fontWeight: size === "default" ? "regular" : "bold",
 
         ...(type === "primary" && {
-          bg: "orange.500",
+          bg: "orange.400",
           color: "white",
         }),
 

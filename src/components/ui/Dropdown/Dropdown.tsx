@@ -80,7 +80,7 @@ export default function Dropdown({
           {required && (
             <span
               className={css({
-                color: "orange.500",
+                color: "orange.400",
               })}
             >
               *

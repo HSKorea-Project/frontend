@@ -40,7 +40,7 @@ const CustomInput = forwardRef<
         cursor: "pointer",
         bg: "white",
         _hover: {
-          borderColor: "orange.500",
+          borderColor: "orange.400",
         },
       })}
     >
@@ -88,7 +88,7 @@ export default function DateInput({
           })}
         >
           {label}
-          {required && <span className={css({ color: "orange.500" })}>*</span>}
+          {required && <span className={css({ color: "orange.400" })}>*</span>}
         </label>
       )}
 
