@@ -5,7 +5,8 @@ import { css } from "@/styled-system/css";
 import Drawer from "./Drawer";
 import Link from "next/link";
 import Button from "@/components/ui/Button/Button";
-import Icon from "@/components/ui/Icon/Icon";
+import LogoIcon from "@/assets/svgs/logo.svg";
+import MenuIcon from "@/assets/svgs/menu.svg";
 
 interface NavbarProps {
   className?: string;
@@ -44,8 +45,7 @@ export default function Navbar({ className }: NavbarProps) {
             alignItems: "center",
           })}
         >
-          <img
-            src="/logo.svg"
+          <LogoIcon
             className={css({
               height: "100%",
             })}
@@ -137,7 +137,7 @@ export default function Navbar({ className }: NavbarProps) {
             cursor: "pointer",
           })}
         >
-          <Icon name="menu" />
+          <MenuIcon />
         </button>
       </nav>
 

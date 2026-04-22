@@ -1,6 +1,7 @@
-import Icon from "@/components/ui/Icon/Icon";
+// import Icon from "@/components/ui/Icon/Icon";
 import { css } from "@/styled-system/css";
 import Link from "next/link";
+import CloseIcon from "@/assets/svgs/close.svg";
 
 // Drawer Props 타입 정의
 interface DrawerProps {
@@ -67,7 +68,7 @@ export default function Drawer({ open, onClose }: DrawerProps) {
               height: "32px",
             })}
           >
-            <Icon name="close" />
+            <CloseIcon />
           </button>
         </div>
 

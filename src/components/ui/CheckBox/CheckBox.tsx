@@ -1,5 +1,5 @@
 import { css } from "@/styled-system/css";
-import Icon from "@/components/ui/Icon/Icon";
+import CheckIcon from "@/assets/svgs/check.svg";
 
 // 체크박스 Props
 interface CheckBoxProps {
@@ -26,7 +26,7 @@ export default function CheckBox({ size = 20, checked, onClick }: CheckBoxProps)
         bg: checked ? "orange.400" : "",
       })}
     >
-      {checked && <Icon name="check" />}
+      {checked && <CheckIcon />}
     </div>
   );
 }

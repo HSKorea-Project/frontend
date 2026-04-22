@@ -1,8 +1,8 @@
 import Button from "@/components/ui/Button/Button";
-import Icon from "@/components/ui/Icon/Icon";
 import { useIsMobile } from "@/hooks/useIsMobile";
 import { css } from "@/styled-system/css";
 import { ChangeEvent } from "react";
+import Search from "@/assets/svgs/search.svg";
 
 // 검색바 props 타입 정의
 interface InquirySearchBarProps {
@@ -56,7 +56,7 @@ export default function InquirySearchBar({ value, onChange }: InquirySearchBarPr
           borderRadius: "0px 5px 5px 0px",
         })}
       >
-        <Icon name="search" />
+        <Search />
       </Button>
     </div>
   );

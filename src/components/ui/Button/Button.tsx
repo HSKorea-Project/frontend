@@ -26,7 +26,7 @@ export default function Button({
       disabled={disabled}
       className={`${css({
         width: fullWidth ? "100%" : "auto",
-        minWidth: "60px",
+        minWidth: "32px",
         px: "16px",
         py: "12px",
         borderRadius: "lg",
@@ -61,7 +61,7 @@ export default function Button({
         }),
 
         ...(disabled && {
-          bg: "gray.400",
+          bg: "gray.200",
           cursor: "not-allowed",
           _hover: {
             bg: "gray.400",

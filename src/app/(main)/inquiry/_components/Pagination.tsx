@@ -1,6 +1,9 @@
 import Button from "@/components/ui/Button/Button";
-import Icon from "@/components/ui/Icon/Icon";
 import { css } from "@/styled-system/css";
+import LeftPairWingIcon from "@/assets/svgs/left-pair-wing.svg";
+import LeftWingIcon from "@/assets/svgs/left-wing.svg";
+import RightPairWingIcon from "@/assets/svgs/right-pair-wing.svg";
+import RightWingIcon from "@/assets/svgs/right-wing.svg";
 
 // 페이지네이션 props 타입 정의
 interface PaginationProps {
@@ -47,7 +50,7 @@ export default function Pagination({ currentPage, totalPages, onChange }: Pagina
         onClick={() => onChange(1)}
         disabled={currentPage === 1}
       >
-        <Icon name="left-pair-wing" size="lg" />
+        <LeftPairWingIcon />
       </Button>
 
       {/* 이전 */}
@@ -66,7 +69,7 @@ export default function Pagination({ currentPage, totalPages, onChange }: Pagina
         onClick={() => onChange(currentPage - 1)}
         disabled={currentPage === 1}
       >
-        <Icon name="left-wing" size="lg" />
+        <LeftWingIcon />
       </Button>
 
       {/* 페이지 번호 */}
@@ -113,7 +116,7 @@ export default function Pagination({ currentPage, totalPages, onChange }: Pagina
         onClick={() => onChange(currentPage + 1)}
         disabled={currentPage === totalPages}
       >
-        <Icon name="right-wing" size="lg" />
+        <RightWingIcon />
       </Button>
 
       {/* 마지막 */}
@@ -132,7 +135,7 @@ export default function Pagination({ currentPage, totalPages, onChange }: Pagina
         onClick={() => onChange(totalPages)}
         disabled={currentPage === totalPages}
       >
-        <Icon name="right-pair-wing" size="lg" />
+        <RightPairWingIcon />
       </Button>
     </div>
   );

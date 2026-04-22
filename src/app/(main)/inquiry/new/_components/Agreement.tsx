@@ -4,8 +4,9 @@ import { css } from "@/styled-system/css";
 import Section from "./Section";
 import Button from "@/components/ui/Button/Button";
 import CheckBox from "@/components/ui/CheckBox/CheckBox";
-import { Dispatch, SetStateAction } from "react";
+import { SetStateAction } from "react";
 import { QuoteForm } from "../../_types/quote";
+import ConfirmIcon from "@/assets/svgs/confirm.svg";
 
 // Agreement Props 타입 정의
 interface AgreementProps {
@@ -16,7 +17,7 @@ interface AgreementProps {
 // '약관 동의' 섹션 컴포넌트
 export default function Agreement({ form, setForm }: AgreementProps) {
   return (
-    <Section title="약관 동의" icon="confirm">
+    <Section title="약관 동의" icon={ConfirmIcon}>
       <div
         id="privacy"
         className={css({
@@ -53,7 +54,7 @@ export default function Agreement({ form, setForm }: AgreementProps) {
         </p>
         <p
           className={css({
-            color: "orange.600",
+            color: "orange.500",
             textDecoration: "underline",
             fontSize: "12px",
             cursor: "pointer",

@@ -2,7 +2,7 @@
 
 import { css } from "@/styled-system/css";
 import { useRef, useState } from "react";
-import Icon from "@/components/ui/Icon/Icon";
+import UploadIcon from "@/assets/svgs/upload.svg";
 
 // Upload Props 타입 정의
 interface UploadProps {
@@ -102,11 +102,11 @@ export default function Upload({
           </>
         ) : (
           <>
-            <Icon name="upload" />
+            <UploadIcon />
             <span
               className={css({
                 fontSize: "12px",
-                color: "orange.700",
+                color: "orange.500",
                 fontWeight: "medium",
               })}
             >

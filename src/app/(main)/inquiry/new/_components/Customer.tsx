@@ -9,6 +9,7 @@ import { formatPhoneNumber, onlyNumber } from "@/utils/format";
 import { useEffect, useRef, useState } from "react";
 import { AGENCY } from "@/constants/agency";
 import { QuoteForm } from "../../_types/quote";
+import UserIcon from "@/assets/svgs/user.svg";
 
 // Customer Props 타입 정의
 interface CustomerProps {
@@ -64,7 +65,7 @@ export default function Customer({ form, setForm }: CustomerProps) {
   }, []);
 
   return (
-    <Section title="고객 정보" icon="user">
+    <Section title="고객 정보" icon={UserIcon}>
       {/* 고객사명 input */}
       <div id="clientCompany">
         <Input
@@ -163,7 +164,7 @@ export default function Customer({ form, setForm }: CustomerProps) {
             disabled={!form.clientContact || !form.agency || cooldown > 0 || isVerified}
             className={css({
               height: "44px",
-              width: { base: "stretch", md: "auto" },
+              width: { base: "stretch", md: "56px" },
             })}
           >
             {cooldown > 0 && !isVerified ? `${cooldown}s` : isVerified ? "완료" : `인증`}
@@ -201,6 +202,7 @@ export default function Customer({ form, setForm }: CustomerProps) {
             disabled={!form.certification || isVerified}
             className={css({
               height: "44px",
+              width: { base: "stretch", md: "56px" },
             })}
           >
             확인

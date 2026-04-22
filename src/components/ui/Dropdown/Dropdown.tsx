@@ -2,7 +2,7 @@
 
 import { css, cx } from "@/styled-system/css";
 import { useState, useRef, useEffect, useId } from "react";
-import Icon from "@/components/ui/Icon/Icon";
+import DownIcon from "@/assets/svgs/down.svg";
 
 interface Option {
   label: string;
@@ -116,8 +116,7 @@ export default function Dropdown({
         >
           {selected ? selected.label : placeholder}
         </span>
-
-        <Icon name="down" />
+        <DownIcon />
       </button>
 
       {/* 드롭다운 */}
