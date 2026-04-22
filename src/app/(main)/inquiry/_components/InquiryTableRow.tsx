@@ -29,7 +29,7 @@ export default function InquiryTableRow({ item }: InquiryTableRowProps) {
       className={css({
         cursor: "pointer",
         _hover: {
-          bg: "green.50",
+          bg: "orange.50",
         },
       })}
     >

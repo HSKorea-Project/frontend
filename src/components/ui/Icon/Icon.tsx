@@ -1,4 +1,4 @@
-import { css } from "@/styled-system/css";
+import { css, cx } from "@/styled-system/css";
 
 type IconSize = "sm" | "md" | "lg";
 
@@ -30,13 +30,15 @@ export default function Icon({ name, size = "md", className }: IconProps) {
     <img
       src={`/${name}.svg`}
       alt={name}
-      className={`${css({
-        display: "inline-block",
-        flexShrink: 0,
-
-        width: sizeMap[size],
-        height: sizeMap[size],
-      })} ${className || ""}`}
+      className={cx(
+        css({
+          display: "inline-block",
+          flexShrink: 0,
+          width: sizeMap[size],
+          height: sizeMap[size],
+        }),
+        className
+      )}
     />
   );
 }

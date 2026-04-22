@@ -58,15 +58,6 @@ export default function Drawer({ open, onClose }: DrawerProps) {
             paddingY: "12px",
           })}
         >
-          {/* <span
-            className={css({
-              fontWeight: "bold",
-              color: "green.500",
-            })}
-          >
-            HSKorea
-          </span> */}
-
           {/* 닫힘 버튼 */}
           <button
             onClick={onClose}
@@ -74,10 +65,6 @@ export default function Drawer({ open, onClose }: DrawerProps) {
               cursor: "pointer",
               width: "32px",
               height: "32px",
-              // _hover: {
-              //   bg: "gray.100",
-              //   borderRadius: "md",
-              // },
             })}
           >
             <Icon name="close" />

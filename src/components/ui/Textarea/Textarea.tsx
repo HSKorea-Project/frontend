@@ -38,7 +38,7 @@ export default function Textarea({ label, required, ...props }: TextareaProps) {
           {required && (
             <span
               className={css({
-                color: "green.500",
+                color: "orange.400",
               })}
             >
               *
@@ -67,7 +67,7 @@ export default function Textarea({ label, required, ...props }: TextareaProps) {
           },
 
           _focus: {
-            borderColor: "green.500",
+            borderColor: "orange.400",
             boxShadow: "0 0 0 3px rgba(46,158,97,0.2)",
           },
 

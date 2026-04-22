@@ -27,18 +27,18 @@ export default function Button({
       className={`${css({
         width: fullWidth ? "100%" : "auto",
         minWidth: "60px",
-        px: "4",
-        py: "3",
+        px: "16px",
+        py: "12px",
         borderRadius: "lg",
         fontWeight: "regular",
         cursor: "pointer",
         fontSize: "12px",
 
         ...(variant === "primary" && {
-          bg: "green.500",
+          bg: "orange.400",
           color: "white",
           _hover: {
-            bg: "green.600",
+            bg: "orange.500",
           },
         }),
 

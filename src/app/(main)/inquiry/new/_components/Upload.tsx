@@ -76,14 +76,14 @@ export default function Upload({
           px: "16px",
           py: "12px",
           border: "2px dashed",
-          borderColor: "green.300",
+          borderColor: "orange.300",
           borderRadius: "8px",
-          bg: "green.50",
+          bg: "orange.50",
           cursor: "pointer",
           transition: "all 0.2s",
 
           _hover: {
-            bg: "green.100",
+            bg: "orange.100",
           },
         })}
       >
@@ -93,7 +93,7 @@ export default function Upload({
             <span
               className={css({
                 fontSize: "12px",
-                color: "green.700",
+                color: "orange.700",
                 fontWeight: "medium",
               })}
             >
@@ -106,7 +106,7 @@ export default function Upload({
             <span
               className={css({
                 fontSize: "12px",
-                color: "green.700",
+                color: "orange.700",
                 fontWeight: "medium",
               })}
             >

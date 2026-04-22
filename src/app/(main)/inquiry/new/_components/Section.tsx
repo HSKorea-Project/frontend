@@ -47,7 +47,7 @@ export default function Section({ title, icon, children }: SectionProps) {
             alignItems: "center",
             gap: "8px",
             fontWeight: "bold",
-            color: "green.700",
+            color: "orange.700",
             fontSize: "16px",
           })}
         >

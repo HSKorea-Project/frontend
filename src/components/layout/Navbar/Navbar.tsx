@@ -19,8 +19,8 @@ export default function Navbar({ className }: NavbarProps) {
     <>
       <nav
         className={`${css({
-          display: "flex",
-          justifyContent: "space-between",
+          display: "grid",
+          gridTemplateColumns: "160px 1fr 160px",
           alignItems: "center",
           px: {
             base: "20px",
@@ -37,20 +37,27 @@ export default function Navbar({ className }: NavbarProps) {
         ${className}`}
       >
         {/* 로고 */}
-        <span
+        <Link
+          href="/"
           className={css({
-            fontWeight: "bold",
-            color: "green.500",
+            display: "flex",
+            alignItems: "center",
           })}
         >
-          HSKorea
-        </span>
+          <img
+            src="/logo.svg"
+            className={css({
+              height: "100%",
+            })}
+          />
+        </Link>
 
         {/* Desktop: 메뉴 */}
         <div
           className={css({
-            display: { base: "none", md: "block" },
-            flexDirection: "row",
+            display: { base: "none", md: "flex" },
+            justifyContent: "center",
+            alignItems: "center",
           })}
         >
           <div
@@ -108,13 +115,16 @@ export default function Navbar({ className }: NavbarProps) {
             </Link>
           </div>
         </div>
+
+        {/* 견적문의 버튼 */}
         <Link
           href="/inquiry/new"
           className={css({
-            display: { base: "none", md: "block" },
+            display: { base: "none", md: "flex" },
+            justifyContent: "end",
           })}
         >
-          <Button>견적문의</Button>
+          <Button>견적 문의</Button>
         </Link>
 
         {/* Mobile: 햄버거 */}
