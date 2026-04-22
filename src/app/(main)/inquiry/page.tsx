@@ -38,7 +38,12 @@ export default function InquiryListPage() {
       className={css({
         width: "100%",
         display: "grid",
-        gridTemplateColumns: "minmax(20px, 1fr) minmax(300px, 1052px) minmax(20px, 1fr)",
+        gridTemplateColumns: {
+          base: "16px 1fr 16px", // 모바일 여백
+          md: "24px 1fr 24px", // 태블릿 여백
+          lg: "1fr minmax(0, 900px) 1fr", // 데스크탑
+          xl: "1fr minmax(0, 1052px) 1fr", // 큰 화면
+        },
       })}
     >
       <div />
@@ -98,23 +103,28 @@ export default function InquiryListPage() {
         </div>
 
         {/* 문의내역 목록 */}
-        {isMobile ? (
-          // 모바일: 카드 형식
-          <>
-            {paginatedData.map((item) => (
-              <InquiryCard key={item.id} item={item} />
-            ))}
-          </>
-        ) : (
-          // 데스크탑: Table
-          <div
-            className={css({
-              height: "535px",
-            })}
-          >
-            <InquiryTable data={paginatedData} />
-          </div>
-        )}
+        {/* 모바일 */}
+        <div
+          className={css({
+            display: { base: "flex", md: "none" },
+            flexDirection: "column",
+            rowGap: "8px",
+          })}
+        >
+          {paginatedData.map((item) => (
+            <InquiryCard key={item.id} item={item} />
+          ))}
+        </div>
+
+        {/* 데스크탑 */}
+        <div
+          className={css({
+            display: { base: "none", md: "block" },
+            height: { md: "100%", lg: "535px" },
+          })}
+        >
+          <InquiryTable data={paginatedData} />
+        </div>
 
         {/* 페이지네이션 */}
         <div

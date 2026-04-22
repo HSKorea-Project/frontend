@@ -17,7 +17,7 @@ export default function Badge({ content, type = "primary", size = "default" }: B
         paddingX: "8px",
         width: "fit-content",
         height: "fit",
-        paddingY: "2px",
+        paddingY: { base: "1px", md: "2px" },
         borderRadius: "full",
         fontSize: size === "default" ? "12px" : "10px",
         fontWeight: size === "default" ? "regular" : "bold",

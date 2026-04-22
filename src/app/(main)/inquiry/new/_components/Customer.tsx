@@ -160,7 +160,6 @@ export default function Customer({ form, setForm }: CustomerProps) {
           {/* 인증 버튼 */}
           <Button
             onClick={handleRequestCode}
-            variant="primary"
             disabled={!form.clientContact || !form.agency || cooldown > 0 || isVerified}
             className={css({
               height: "44px",
@@ -198,7 +197,6 @@ export default function Customer({ form, setForm }: CustomerProps) {
 
           <Button
             onClick={handleVerifyCode}
-            variant="primary"
             disabled={!form.certification || isVerified}
             className={css({
               height: "44px",

@@ -2,7 +2,7 @@
 
 import Badge from "@/components/ui/Badge/Badge";
 import TableCell from "./TableCell";
-import { InquiryItem } from "../_types/inquiry";
+import { InquiryItem, InquiryStateBadgeType, InquiryStateLabel } from "../_types/inquiry";
 import { css } from "@/styled-system/css";
 import { useMaskedName } from "@/utils/maskName";
 import { useRouter } from "next/navigation";
@@ -51,7 +51,7 @@ export default function InquiryTableRow({ item }: InquiryTableRowProps) {
         )}
       >
         {item.companyName}
-        {item.isNew && <Badge content="NEW" size="small" />}
+        {item.isNew && <Badge content="NEW" size="small" type="full" />}
       </TableCell>
       <TableCell>{maskName(item.customerName)}</TableCell>
       <TableCell
@@ -64,6 +64,14 @@ export default function InquiryTableRow({ item }: InquiryTableRowProps) {
       </TableCell>
       <TableCell>{item.moveDate}</TableCell>
       <TableCell>{item.createdAt}</TableCell>
+      <TableCell
+        className={css({
+          display: "flex",
+          justifyContent: "center",
+        })}
+      >
+        <Badge content={InquiryStateLabel[item.state]} type={InquiryStateBadgeType[item.state]} />
+      </TableCell>
     </TableRow>
   );
 }

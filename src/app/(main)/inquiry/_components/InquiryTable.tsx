@@ -34,32 +34,63 @@ export default function InquiryTable({ data }: InquiryTableProps) {
         <thead
           className={css({
             bg: "orange.50",
-            borderBottom: "1.5px solid",
-            borderColor: "orange.300",
-
+            borderBottom: "1px solid",
+            borderColor: "orange.200",
             fontWeight: "bold",
-            color: "orange.700",
           })}
         >
           <TableRow>
             <TableCell
               className={css({
-                width: "94px",
+                width: "70px",
+                color: "orange.500",
               })}
             >
               No.
             </TableCell>
             <TableCell
               className={css({
-                width: "250px",
+                width: "200px",
+                color: "orange.500",
               })}
             >
               고객사명
             </TableCell>
-            <TableCell>고객명</TableCell>
-            <TableCell>서비스 유형</TableCell>
-            <TableCell>이사 예정일</TableCell>
-            <TableCell>등록일</TableCell>
+            <TableCell
+              className={css({
+                color: "orange.500",
+              })}
+            >
+              고객명
+            </TableCell>
+            <TableCell
+              className={css({
+                color: "orange.500",
+              })}
+            >
+              서비스 유형
+            </TableCell>
+            <TableCell
+              className={css({
+                color: "orange.500",
+              })}
+            >
+              이사 예정일
+            </TableCell>
+            <TableCell
+              className={css({
+                color: "orange.500",
+              })}
+            >
+              등록일
+            </TableCell>
+            <TableCell
+              className={css({
+                color: "orange.500",
+              })}
+            >
+              접수 현황
+            </TableCell>
           </TableRow>
         </thead>
 

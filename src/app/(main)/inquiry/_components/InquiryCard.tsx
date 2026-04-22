@@ -1,5 +1,5 @@
 import { css } from "@/styled-system/css";
-import { InquiryItem } from "../_types/inquiry";
+import { InquiryItem, InquiryStateBadgeType, InquiryStateLabel } from "../_types/inquiry";
 import Badge from "@/components/ui/Badge/Badge";
 import { useMaskedName } from "@/utils/maskName";
 import { useRouter } from "next/navigation";
@@ -86,7 +86,7 @@ export default function InquiryCard({ item }: InquiryCardProps) {
           })}
         >
           {item.companyName}
-          {item.isNew && <Badge content="NEW" type="primary" size="small" />}
+          {item.isNew && <Badge content="NEW" type="full" size="small" />}
         </div>
       </div>
       <div
@@ -116,6 +116,7 @@ export default function InquiryCard({ item }: InquiryCardProps) {
       <div
         className={css({
           display: "flex",
+          alignItems: "center",
         })}
       >
         <p
@@ -177,6 +178,24 @@ export default function InquiryCard({ item }: InquiryCardProps) {
         >
           {item.createdAt}
         </p>
+      </div>
+      <div
+        className={css({
+          display: "flex",
+          alignItems: "center",
+        })}
+      >
+        <p
+          className={css({
+            width: "80px",
+            fontWeight: "bold",
+            color: "gray.400",
+            fontSize: "12px",
+          })}
+        >
+          접수 현황
+        </p>
+        <Badge content={InquiryStateLabel[item.state]} type={InquiryStateBadgeType[item.state]} />
       </div>
     </div>
   );

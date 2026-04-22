@@ -1,4 +1,4 @@
-import { css } from "@/styled-system/css";
+import { css, cx } from "@/styled-system/css";
 
 // 테이블 셀 props 타입 정의
 interface TableCellProps {
@@ -11,15 +11,18 @@ interface TableCellProps {
 export default function TableCell({ children, align = "center", className }: TableCellProps) {
   return (
     <td
-      className={`${css({
-        textAlign: align,
-        padding: "12px 16px",
-        fontSize: {
-          base: "12px",
-          md: "14px",
-        },
-        color: "gray.700",
-      })} ${className}`}
+      className={cx(
+        css({
+          textAlign: align,
+          padding: "12px 16px",
+          fontSize: {
+            base: "12px",
+            md: "14px",
+          },
+          color: "gray.700",
+        }),
+        className
+      )}
     >
       {children}
     </td>
