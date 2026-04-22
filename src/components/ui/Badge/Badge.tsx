@@ -3,7 +3,7 @@ import { css } from "@/styled-system/css";
 // Badge props 타입 정의
 interface BadgeProps {
   content: string;
-  type?: "primary" | "gray"; // badge 색상
+  type?: "primary" | "full" | "gray" | "red"; // badge 색상
   size?: "default" | "small"; // 폰트 사이즈
 }
 
@@ -17,15 +17,19 @@ export default function Badge({ content, type = "primary", size = "default" }: B
         paddingX: "8px",
         width: "fit-content",
         height: "fit",
-        paddingY: {
-          base: "2px",
-          md: "3px",
-        },
+        paddingY: "2px",
         borderRadius: "full",
         fontSize: size === "default" ? "12px" : "10px",
         fontWeight: size === "default" ? "regular" : "bold",
 
         ...(type === "primary" && {
+          bg: "orange.50",
+          color: "orange.400",
+          border: "1px solid",
+          borderColor: "orange.400",
+        }),
+
+        ...(type === "full" && {
           bg: "orange.400",
           color: "white",
         }),
@@ -33,6 +37,15 @@ export default function Badge({ content, type = "primary", size = "default" }: B
         ...(type === "gray" && {
           bg: "gray.100",
           color: "gray.600",
+          border: "1px solid",
+          borderColor: "gray.600",
+        }),
+
+        ...(type === "red" && {
+          bg: "error.50",
+          color: "error.500",
+          border: "1px solid",
+          borderColor: "error.500",
         }),
       })}
     >
