@@ -1,7 +1,7 @@
 "use client";
 
 import { css } from "@/styled-system/css";
-import { useRef, useState } from "react";
+import { useState } from "react";
 import Password from "./_components/Password";
 import Agreement from "./_components/Agreement";
 import Inquiry from "./_components/Inquiry";
