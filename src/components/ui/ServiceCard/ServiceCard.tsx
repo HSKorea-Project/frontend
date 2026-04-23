@@ -51,7 +51,7 @@ export default function ServiceCard({
             borderRadius: iconBg ? "4px" : "0px",
           })}
         >
-          <Icon width={iconBg ? 28 : 32} height={iconBg ? 28 : 32} className={css({})} />
+          <Icon width={iconBg ? 28 : 32} height={iconBg ? 28 : 32} />
         </div>
       )}
       {children}
