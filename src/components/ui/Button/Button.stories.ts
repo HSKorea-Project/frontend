@@ -36,7 +36,7 @@ export const Outline: Story = {
   },
 };
 
-// 테두리 버튼
+// 흰색 버튼
 export const White: Story = {
   args: {
     children: "문의하기",
