@@ -26,6 +26,7 @@ export default function Breadcrumb({ currentPageName }: BreadcrumbProps) {
         </li>
         <RightWingIcon width={24} height={24} fill="#fff" />
         <li
+          aria-current="page"
           className={css({
             color: "orange.400",
           })}
