@@ -25,6 +25,7 @@ export default function HeroContainer({ children }: HeroContainerProps) {
     >
       {/* 배경 요소 */}
       <OrangeCircle
+        aria-hidden
         className={css({
           position: "absolute",
           right: 0,
@@ -32,6 +33,7 @@ export default function HeroContainer({ children }: HeroContainerProps) {
         })}
       />
       <WhiteCircle
+        aria-hidden
         className={css({
           position: "absolute",
           right: 20,
