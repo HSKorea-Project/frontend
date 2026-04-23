@@ -12,6 +12,7 @@ export default function Breadcrumb({ currentPageName }: BreadcrumbProps) {
     <div
       className={css({
         display: "flex",
+        fontSize: { base: "12px", md: "16px" },
       })}
     >
       <p
