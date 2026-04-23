@@ -36,9 +36,6 @@ export default function QuoteInquiryPage() {
     privacy: false,
   });
 
-  // 미입력 항목 스크롤
-  const fieldRefs = useRef<Record<string, HTMLElement | null>>({});
-
   // 필수 내용 입력 검증
   const validate = () => {
     if (!form.clientCompany) return "clientCompany";
