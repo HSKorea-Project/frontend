@@ -37,6 +37,7 @@ export default function Pagination({ currentPage, totalPages, onChange }: Pagina
       {/* 처음 */}
       <Button
         variant="outline"
+        aria-label="첫 페이지"
         className={css({
           width: "32px",
           height: "32px",
@@ -56,6 +57,7 @@ export default function Pagination({ currentPage, totalPages, onChange }: Pagina
       {/* 이전 */}
       <Button
         variant="outline"
+        aria-label="이전 페이지"
         className={css({
           width: "32px",
           height: "32px",
@@ -103,6 +105,7 @@ export default function Pagination({ currentPage, totalPages, onChange }: Pagina
       {/* 다음 */}
       <Button
         variant="outline"
+        aria-label="다음 페이지"
         className={css({
           width: "32px",
           height: "32px",
@@ -122,6 +125,7 @@ export default function Pagination({ currentPage, totalPages, onChange }: Pagina
       {/* 마지막 */}
       <Button
         variant="outline"
+        aria-label="마지막 페이지"
         className={css({
           width: "32px",
           height: "32px",
