@@ -1,6 +1,7 @@
 import { REASONS } from "@/constants/reason";
 import { css } from "@/styled-system/css";
 import SectionTitle from "@/components/ui/SectionTitle/SectionTitle";
+import { formatTwoDigit } from "@/utils/format";
 
 // 온보딩: 이유 섹션
 export default function ReasonSection() {
@@ -59,7 +60,7 @@ export default function ReasonSection() {
                 height: "fit",
               })}
             >
-              REASON {String(idx + 1).padStart(2, "0")}
+              REASON {formatTwoDigit(idx + 1)}
             </div>
             <h3
               className={css({

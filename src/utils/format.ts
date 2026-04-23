@@ -17,3 +17,8 @@ export const formatPhoneNumber = (value: string): string => {
 export const onlyNumber = (value: string): string => {
   return value.replace(/\D/g, "");
 };
+
+// 두자리 수로 변경
+export const formatTwoDigit = (idx: number): string => {
+  return String(idx).padStart(2, "0");
+};
