@@ -16,7 +16,7 @@ export default function HeroContainer({ children }: HeroContainerProps) {
         position: "relative",
         justifyContent: { base: "flex-start", md: "center" },
         width: "100%",
-        height: "400px",
+        height: "fit",
         paddingX: { base: "20px", md: "150px" },
         paddingY: "40px",
         background:
