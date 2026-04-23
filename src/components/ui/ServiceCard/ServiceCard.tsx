@@ -26,7 +26,7 @@ export default function ServiceCard({
       className={css({
         display: "flex",
         flexDirection: direction,
-        justifyContent: align,
+        justifyContent: align === "left" ? "flex-start" : "center",
         alignItems: "center",
         gap: direction === "row" ? "8px" : "12px",
         p: "24px",
