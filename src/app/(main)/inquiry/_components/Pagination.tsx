@@ -116,7 +116,7 @@ export default function Pagination({ currentPage, totalPages, onChange }: Pagina
         onClick={() => onChange(currentPage + 1)}
         disabled={currentPage === totalPages}
       >
-        <RightWingIcon />
+        <RightWingIcon width={16} height={16} />
       </Button>
 
       {/* 마지막 */}
