@@ -36,6 +36,14 @@ export const Outline: Story = {
   },
 };
 
+// 테두리 버튼
+export const White: Story = {
+  args: {
+    children: "문의하기",
+    variant: "white",
+  },
+};
+
 // 비활성화
 export const Disabled: Story = {
   args: {

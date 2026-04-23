@@ -4,7 +4,7 @@ import { ButtonHTMLAttributes, ReactNode } from "react";
 // 버튼 props 타입 정의
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
-  variant?: "primary" | "secondary" | "outline"; // 스타일 유형
+  variant?: "primary" | "secondary" | "outline" | "white"; // 스타일 유형
   fullWidth?: boolean;
   className?: string;
   onClick?: () => void;
@@ -54,6 +54,13 @@ export default function Button({
             borderColor: "gray.300",
             color: "gray.700",
             _hover: disabled ? {} : { bg: "gray.100" },
+          }),
+
+          ...(variant === "white" && {
+            bg: "white",
+            color: "orange.400",
+            fontWeight: "bold",
+            _hover: disabled ? {} : { bg: "gray.50" },
           }),
 
           ...(disabled && {
