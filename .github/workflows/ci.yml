@@ -1,0 +1,53 @@
+name: CI - Lint, Type Check, Build
+
+on:
+  # dev로 들어오는 PR에서 실행
+  pull_request:
+    branches:
+      - dev
+
+  # dev에 merge(push) 되었을 때도 실행 (통합 상태 검증)
+  push:
+    branches:
+      - dev
+
+# 동일 브랜치에서 중복 실행 방지 (최신 CI만 유지)
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. 레포지토리 코드 체크아웃
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 2. Node.js 환경 설정 + npm 캐시 자동 처리
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      # 3. 의존성 설치
+      - name: Install dependencies
+        run: npm ci
+
+      # 4. 코드 포맷 검사만
+      - name: Check code formatting (Prettier)
+        run: npx prettier -c .
+
+      # 5. ESLint 검사
+      - name: Run ESLint
+        run: npm run lint
+
+      # 6. TypeScript 타입 검사
+      - name: Type check
+        run: npm run type-check
+
+      # 7. 빌드
+      - name: Build project
+        run: npm run build
