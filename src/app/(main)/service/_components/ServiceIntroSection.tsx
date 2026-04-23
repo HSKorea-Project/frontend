@@ -45,9 +45,6 @@ export default function ServiceIntroSection() {
           {SERVICE_INTRODUCES.map((intro, idx) => (
             <ServiceCard
               className={css({
-                ...(idx === 4 && {
-                  gridColumn: { xl: "span 2" },
-                }),
                 alignItems: "flex-start",
               })}
               key={idx}
