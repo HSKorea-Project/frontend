@@ -80,6 +80,7 @@ export default function ProcessSection() {
               <RightWingIcon
                 width={24}
                 height={24}
+                fill={"#868E96"}
                 className={css({
                   display: { base: "none", xl: "block" },
                   marginX: "4px",

@@ -1,4 +1,4 @@
-import { css } from "@/styled-system/css";
+import { css, cx } from "@/styled-system/css";
 
 // 서비스 카드 Props 타입 정의
 interface ServiceCardProps {
@@ -9,6 +9,7 @@ interface ServiceCardProps {
   align?: "left" | "center"; // 정렬
   direction?: "column" | "row";
   color?: "white" | "gray.900";
+  className?: string;
 }
 
 // 서비스 카드 컴포넌트
@@ -20,28 +21,33 @@ export default function ServiceCard({
   align = "left",
   direction = "row",
   color = "gray.900",
+  className,
 }: ServiceCardProps) {
   return (
     <div
-      className={css({
-        display: "flex",
-        flexDirection: direction,
-        justifyContent: align === "left" ? "flex-start" : "center",
-        alignItems: "center",
-        gap: direction === "row" ? "8px" : "12px",
-        p: "24px",
-        border: "1px solid",
-        borderRadius: "8px",
-        color: color,
+      className={cx(
+        css({
+          display: "flex",
+          flexDirection: direction,
+          justifyContent: align === "left" ? "flex-start" : "center",
+          alignItems: "center",
+          gap: direction === "row" ? "8px" : "12px",
+          p: "24px",
+          border: "1px solid",
+          borderRadius: "8px",
+          color: color,
+          bg: "white",
 
-        ...(borderColor === "gray" && {
-          borderColor: "gray.300",
-        }),
+          ...(borderColor === "gray" && {
+            borderColor: "gray.300",
+          }),
 
-        ...(borderColor === "primary" && {
-          borderColor: "orange.400",
+          ...(borderColor === "primary" && {
+            borderColor: "orange.400",
+          }),
         }),
-      })}
+        className
+      )}
     >
       {Icon && (
         <div

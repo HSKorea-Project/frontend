@@ -14,9 +14,10 @@ export default function HeroContainer({ children }: HeroContainerProps) {
       className={css({
         display: "flex",
         position: "relative",
+        overflowY: "hidden",
         justifyContent: { base: "flex-start", md: "center" },
         width: "100%",
-        height: "400px",
+        minHeight: "fit",
         paddingX: { base: "20px", md: "150px" },
         paddingY: "40px",
         background:
@@ -46,6 +47,7 @@ export default function HeroContainer({ children }: HeroContainerProps) {
         className={css({
           width: "100%",
           maxWidth: "980px",
+          zIndex: 1,
         })}
       >
         {children}
