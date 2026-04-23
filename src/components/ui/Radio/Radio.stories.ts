@@ -12,7 +12,7 @@ export default meta;
 type Story = StoryObj<typeof Radio>;
 
 // 선택
-export const Checked = {
+export const Checked: Story = {
   args: {
     label: "포함",
     checked: true,
@@ -20,7 +20,7 @@ export const Checked = {
 };
 
 // 미선택
-export const Unchecked = {
+export const Unchecked: Story = {
   args: {
     label: "포함",
     checked: false,
