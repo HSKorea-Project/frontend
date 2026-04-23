@@ -36,6 +36,7 @@ export default function ServiceCard({
           border: "1px solid",
           borderRadius: "8px",
           color: color,
+          bg: "white",
 
           ...(borderColor === "gray" && {
             borderColor: "gray.300",
