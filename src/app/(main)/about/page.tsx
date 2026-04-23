@@ -30,20 +30,22 @@ export default function AboutPage() {
               fontSize: { base: "24px", md: "32px" },
             })}
           >
-            <p
+            <span
               className={css({
+                display: "block",
                 color: "white",
               })}
             >
               믿을 수 있는 기업이전 파트너
-            </p>
-            <p
+            </span>
+            <span
               className={css({
+                display: "block",
                 color: "orange.400",
               })}
             >
               에이치에스코리아
-            </p>
+            </span>
           </h1>
           <div
             className={css({

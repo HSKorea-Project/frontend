@@ -9,27 +9,30 @@ interface BreadcrumbProps {
 // Breadcrumb 컴포넌트
 export default function Breadcrumb({ currentPageName }: BreadcrumbProps) {
   return (
-    <div
+    <nav
+      aria-label="breadcrumb"
       className={css({
         display: "flex",
         fontSize: { base: "12px", md: "16px" },
       })}
     >
-      <p
-        className={css({
-          color: "white",
-        })}
-      >
-        홈
-      </p>
-      <RightWingIcon width={24} height={24} fill="#fff" />
-      <p
-        className={css({
-          color: "orange.400",
-        })}
-      >
-        {currentPageName}
-      </p>
-    </div>
+      <ol className={css({ display: "flex", alignItems: "center", gap: "4px" })}>
+        <li
+          className={css({
+            color: "white",
+          })}
+        >
+          홈
+        </li>
+        <RightWingIcon width={24} height={24} fill="#fff" />
+        <li
+          className={css({
+            color: "orange.400",
+          })}
+        >
+          {currentPageName}
+        </li>
+      </ol>
+    </nav>
   );
 }
