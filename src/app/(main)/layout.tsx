@@ -8,7 +8,6 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
       className={css({
         display: "flex",
         flexDirection: "column",
-        height: "100dvh",
       })}
     >
       <Navbar
