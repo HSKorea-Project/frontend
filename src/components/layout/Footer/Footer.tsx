@@ -1,6 +1,5 @@
 import { css } from "@/styled-system/css";
 import LogoIcon from "@/assets/svgs/logo.svg";
-import Link from "next/link";
 import { FOOTER_DATA } from "@/constants/footer";
 import FooterMenu from "./_components/FooterMenu";
 
