@@ -49,6 +49,7 @@ export default function Navbar({ className }: NavbarProps) {
           <LogoIcon
             className={css({
               height: "100%",
+              fill: "orange.400",
             })}
           />
         </Link>

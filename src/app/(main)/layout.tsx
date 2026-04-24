@@ -1,3 +1,4 @@
+import Footer from "@/components/layout/Footer/Footer";
 import Navbar from "@/components/layout/Navbar/Navbar";
 import { css } from "@/styled-system/css";
 
@@ -8,13 +9,13 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
       className={css({
         display: "flex",
         flexDirection: "column",
-        height: "100dvh",
       })}
     >
       <Navbar
         className={css({
           position: "sticky",
           top: "0",
+          zIndex: 2,
         })}
       />
       <main
@@ -28,6 +29,7 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
       >
         {children}
       </main>
+      <Footer />
     </div>
   );
 }
