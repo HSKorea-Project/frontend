@@ -76,6 +76,7 @@ export default function LoginPage() {
           <LogoIcon
             className={css({
               height: "100%",
+              fill: "orange.400",
             })}
           />
           <div
