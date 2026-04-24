@@ -1,35 +1,7 @@
 import { css } from "@/styled-system/css";
 import LogoIcon from "@/assets/svgs/logo.svg";
 import Link from "next/link";
-
-interface InfoType {
-  label: string;
-  value: string;
-}
-
-interface FooterInfoType {
-  info: InfoType[];
-  company: InfoType[];
-  service: InfoType[];
-}
-
-export const FOOTER_INFO: FooterInfoType = {
-  info: [
-    { label: "상호", value: "(주)에이치에스코리아" },
-    { label: "주소", value: "경기도 하남시 신평로 84, 305호(신장동)" },
-    { label: "사업자등록번호", value: "899-88-02008" },
-    { label: "대표 전화", value: "1551-2474" },
-  ],
-  company: [
-    { label: "회사 소개", value: "/about" },
-    { label: "서비스 소개", value: "/service" },
-    { label: "개인정보처리방침", value: "/" }, // 임시
-  ],
-  service: [
-    { label: "견적 문의", value: "/inquiry/new" },
-    { label: "문의 목록", value: "/inquiry" },
-  ],
-};
+import { FOOTER_DATA } from "@/constants/footer";
 
 // Footer
 export default function Footer() {
@@ -80,7 +52,7 @@ export default function Footer() {
                 rowGap: "4px",
               })}
             >
-              {FOOTER_INFO.info.map((info, idx) => (
+              {FOOTER_DATA.companyInfo.map((info, idx) => (
                 <p
                   key={idx}
                   className={css({
@@ -124,10 +96,10 @@ export default function Footer() {
                   rowGap: "12px",
                 })}
               >
-                {FOOTER_INFO.company.map((c, idx) => (
+                {FOOTER_DATA.menu.company.map((c, idx) => (
                   <Link
                     key={idx}
-                    href={c.value}
+                    href={c.href}
                     className={css({
                       color: "white/80",
                       fontSize: "12px",
@@ -170,10 +142,10 @@ export default function Footer() {
                   rowGap: "12px",
                 })}
               >
-                {FOOTER_INFO.service.map((s, idx) => (
+                {FOOTER_DATA.menu.service.map((s, idx) => (
                   <Link
                     key={idx}
-                    href={s.value}
+                    href={s.href}
                     className={css({
                       color: "white/80",
                       fontSize: "12px",
@@ -198,7 +170,7 @@ export default function Footer() {
       >
         <p
           className={css({
-            width: "fit",
+            width: "fit-content",
             color: "gray.500",
             fontSize: "12px",
           })}
