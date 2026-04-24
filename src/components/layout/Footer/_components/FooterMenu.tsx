@@ -17,6 +17,7 @@ export default function FooterMenu({ title, items }: { title: string; items: Foo
           color: "white",
           fontSize: "12px",
           fontWeight: "semibold",
+          letterSpacing: "1px",
         })}
       >
         {title}
@@ -30,7 +31,14 @@ export default function FooterMenu({ title, items }: { title: string; items: Foo
         })}
       >
         {items.map((item) => (
-          <Link key={item.label} href={item.href}>
+          <Link
+            key={item.label}
+            href={item.href}
+            className={css({
+              color: "white/80",
+              fontSize: "12px",
+            })}
+          >
             {item.label}
           </Link>
         ))}

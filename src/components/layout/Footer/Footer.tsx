@@ -2,6 +2,7 @@ import { css } from "@/styled-system/css";
 import LogoIcon from "@/assets/svgs/logo.svg";
 import Link from "next/link";
 import { FOOTER_DATA } from "@/constants/footer";
+import FooterMenu from "./_components/FooterMenu";
 
 // Footer
 export default function Footer() {
@@ -72,44 +73,7 @@ export default function Footer() {
               rowGap: "16px",
             })}
           >
-            <div
-              className={css({
-                display: "flex",
-                flexDirection: "column",
-                rowGap: "16px",
-              })}
-            >
-              <p
-                className={css({
-                  color: "white",
-                  fontSize: "12px",
-                  fontWeight: "semibold",
-                  letterSpacing: "1px",
-                })}
-              >
-                COMPANY
-              </p>
-              <div
-                className={css({
-                  display: "flex",
-                  flexDirection: "column",
-                  rowGap: "12px",
-                })}
-              >
-                {FOOTER_DATA.menu.company.map((c, idx) => (
-                  <Link
-                    key={idx}
-                    href={c.href}
-                    className={css({
-                      color: "white/80",
-                      fontSize: "12px",
-                    })}
-                  >
-                    {c.label}
-                  </Link>
-                ))}
-              </div>
-            </div>
+            <FooterMenu title="COMPANY" items={FOOTER_DATA.menu.company} />
           </article>
           <article
             className={css({
@@ -118,44 +82,7 @@ export default function Footer() {
               rowGap: "16px",
             })}
           >
-            <div
-              className={css({
-                display: "flex",
-                flexDirection: "column",
-                rowGap: "16px",
-              })}
-            >
-              <p
-                className={css({
-                  color: "white",
-                  fontSize: "12px",
-                  fontWeight: "semibold",
-                  letterSpacing: "1px",
-                })}
-              >
-                SERVICE
-              </p>
-              <div
-                className={css({
-                  display: "flex",
-                  flexDirection: "column",
-                  rowGap: "12px",
-                })}
-              >
-                {FOOTER_DATA.menu.service.map((s, idx) => (
-                  <Link
-                    key={idx}
-                    href={s.href}
-                    className={css({
-                      color: "white/80",
-                      fontSize: "12px",
-                    })}
-                  >
-                    {s.label}
-                  </Link>
-                ))}
-              </div>
-            </div>
+            <FooterMenu title="SERVICE" items={FOOTER_DATA.menu.service} />
           </article>
         </div>
       </section>
