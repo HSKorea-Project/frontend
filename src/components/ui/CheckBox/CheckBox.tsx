@@ -1,5 +1,5 @@
 import { css } from "@/styled-system/css";
-import CheckIcon from "@/assets/svgs/check.svg";
+import CheckIcon from "@/assets/svgs/check.svg?react";
 
 // 체크박스 Props
 interface CheckBoxProps {
