@@ -35,7 +35,7 @@ export default function InquiryPasswordPage() {
     <div
       className={css({
         width: "100%",
-        height: "100%",
+        minHeight: "90dvh",
 
         paddingX: "30px",
 
@@ -47,6 +47,7 @@ export default function InquiryPasswordPage() {
       <div
         className={css({
           width: "560px",
+          maxHeight: "430px",
           height: { base: "75vh", md: "50vh" },
           overflowY: "hidden",
 
