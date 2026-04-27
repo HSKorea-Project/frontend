@@ -37,6 +37,7 @@ export default function Upload({
 
     if (!isValid) {
       alert("PDF 또는 png, jpg, jpeg, webp 형식의 이미지 파일만 업로드 가능합니다.");
+      e.target.value = "";
       return;
     }
 
