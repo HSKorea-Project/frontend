@@ -76,6 +76,7 @@ export default function Upload({
 
       {/* 업로드 박스 */}
       <div
+        aria-label="파일 업로드"
         onClick={handleClick}
         className={css({
           display: "flex",
@@ -117,6 +118,8 @@ export default function Upload({
                 {file.name}
               </span>
               <button
+                type="button"
+                aria-label="업로드 파일 제거"
                 onClick={(e) => {
                   e.stopPropagation();
                   handleRemove();
