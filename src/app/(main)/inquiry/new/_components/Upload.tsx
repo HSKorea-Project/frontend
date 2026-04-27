@@ -4,7 +4,6 @@ import { css } from "@/styled-system/css";
 import { useRef, useState } from "react";
 import UploadIcon from "@/assets/svgs/upload.svg";
 import CloseIcon from "@/assets/svgs/close.svg";
-import { FILE } from "dns";
 import { FILE_TYPE } from "@/constants/fileType";
 
 // Upload Props 타입 정의
