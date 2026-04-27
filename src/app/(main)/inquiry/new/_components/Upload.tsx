@@ -3,6 +3,9 @@
 import { css } from "@/styled-system/css";
 import { useRef, useState } from "react";
 import UploadIcon from "@/assets/svgs/upload.svg";
+import CloseIcon from "@/assets/svgs/close.svg";
+import { FILE } from "dns";
+import { FILE_TYPE } from "@/constants/fileType";
 
 // Upload Props 타입 정의
 interface UploadProps {
@@ -30,10 +33,10 @@ export default function Upload({
     if (!selected) return;
 
     // 파일 타입 검증
-    const isValid = selected.type === "application/pdf" || selected.type.startsWith("image/");
+    const isValid = FILE_TYPE.includes(selected.type);
 
     if (!isValid) {
-      alert("PDF 또는 이미지 파일만 업로드 가능합니다.");
+      alert("PDF 또는 png, jpg, jpeg, webp 형식의 이미지 파일만 업로드 가능합니다.");
       return;
     }
 
@@ -42,6 +45,11 @@ export default function Upload({
 
     // 같은 파일 다시 선택 가능하게
     e.target.value = "";
+  };
+
+  const handleRemove = () => {
+    setFile(null);
+    onChange?.(null);
   };
 
   return (
@@ -90,15 +98,42 @@ export default function Upload({
         {/* 선택된 파일 목록 */}
         {file ? (
           <>
-            <span
+            <div
               className={css({
-                fontSize: "12px",
-                color: "orange.700",
-                fontWeight: "medium",
+                width: "full",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+                gap: "8px",
               })}
             >
-              {file.name}
-            </span>
+              <span
+                className={css({
+                  fontSize: "12px",
+                  color: "orange.500",
+                  fontWeight: "medium",
+                })}
+              >
+                {file.name}
+              </span>
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleRemove();
+                }}
+                className={css({
+                  cursor: "pointer",
+                })}
+              >
+                <CloseIcon
+                  className={css({
+                    width: "12px",
+                    height: "12px",
+                    fill: "orange.500",
+                  })}
+                />
+              </button>
+            </div>
           </>
         ) : (
           <>
