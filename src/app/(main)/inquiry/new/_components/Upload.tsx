@@ -5,6 +5,7 @@ import { useRef, useState } from "react";
 import UploadIcon from "@/assets/svgs/upload.svg";
 import CloseIcon from "@/assets/svgs/close.svg";
 import { FILE_TYPE } from "@/constants/fileType";
+import { validateFileType } from "@/utils/validate";
 
 // Upload Props 타입 정의
 interface UploadProps {
@@ -32,10 +33,10 @@ export default function Upload({
     if (!selected) return;
 
     // 파일 타입 검증
-    const isValid = FILE_TYPE.includes(selected.type);
+    const fileTypeError = validateFileType(selected);
 
-    if (!isValid) {
-      alert("PDF 또는 png, jpg, jpeg, webp 형식의 이미지 파일만 업로드 가능합니다.");
+    if (fileTypeError) {
+      alert(fileTypeError);
       e.target.value = "";
       return;
     }
