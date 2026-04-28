@@ -3,6 +3,8 @@
 import { css } from "@/styled-system/css";
 import { useRef, useState } from "react";
 import UploadIcon from "@/assets/svgs/upload.svg";
+import CloseIcon from "@/assets/svgs/close.svg";
+import { validateFileType } from "@/utils/validate";
 
 // Upload Props 타입 정의
 interface UploadProps {
@@ -30,10 +32,11 @@ export default function Upload({
     if (!selected) return;
 
     // 파일 타입 검증
-    const isValid = selected.type === "application/pdf" || selected.type.startsWith("image/");
+    const fileTypeError = validateFileType(selected);
 
-    if (!isValid) {
-      alert("PDF 또는 이미지 파일만 업로드 가능합니다.");
+    if (fileTypeError) {
+      alert(fileTypeError);
+      e.target.value = "";
       return;
     }
 
@@ -42,6 +45,11 @@ export default function Upload({
 
     // 같은 파일 다시 선택 가능하게
     e.target.value = "";
+  };
+
+  const handleRemove = () => {
+    setFile(null);
+    onChange?.(null);
   };
 
   return (
@@ -68,6 +76,7 @@ export default function Upload({
 
       {/* 업로드 박스 */}
       <div
+        aria-label="파일 업로드"
         onClick={handleClick}
         className={css({
           display: "flex",
@@ -90,15 +99,44 @@ export default function Upload({
         {/* 선택된 파일 목록 */}
         {file ? (
           <>
-            <span
+            <div
               className={css({
-                fontSize: "12px",
-                color: "orange.700",
-                fontWeight: "medium",
+                width: "full",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+                gap: "8px",
               })}
             >
-              {file.name}
-            </span>
+              <span
+                className={css({
+                  fontSize: "12px",
+                  color: "orange.500",
+                  fontWeight: "medium",
+                })}
+              >
+                {file.name}
+              </span>
+              <button
+                type="button"
+                aria-label="업로드 파일 제거"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleRemove();
+                }}
+                className={css({
+                  cursor: "pointer",
+                })}
+              >
+                <CloseIcon
+                  className={css({
+                    width: "12px",
+                    height: "12px",
+                    fill: "orange.500",
+                  })}
+                />
+              </button>
+            </div>
           </>
         ) : (
           <>
