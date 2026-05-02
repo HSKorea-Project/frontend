@@ -40,9 +40,6 @@ export default function BaseModal({
         justifyItems: "center",
       })}
       onClick={handleClickOutside}
-      onKeyDown={(e) => {
-        if (e.key === "Escape") onClose();
-      }}
     >
       <div />
       <div
@@ -60,7 +57,6 @@ export default function BaseModal({
           },
           boxShadow: "0 20px 60px rgba(0, 0, 0, 0.1)",
         })}
-        tabIndex={-1}
         onClick={(e) => e.stopPropagation()}
       >
         {children}
