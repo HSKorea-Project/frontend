@@ -62,7 +62,8 @@ export default function Agreement({ form, setForm }: AgreementProps) {
             fontSize: "12px",
             cursor: "pointer",
           })}
-          onClick={() => {
+          onClick={(e) => {
+            e.preventDefault();
             openModal({
               type: "privacy",
             });

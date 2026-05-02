@@ -1,5 +1,6 @@
 "use client";
 
+import { usePreventScroll } from "@/hooks/usePreventScroll";
 import { css } from "@/styled-system/css";
 import { ReactNode } from "react";
 
@@ -16,6 +17,8 @@ export default function BaseModal({
   onClose,
   closeOnClickOutside = true,
 }: BaseModalProps) {
+  usePreventScroll(true);
+
   const handleClickOutside = () => {
     if (!closeOnClickOutside) return;
     onClose();
