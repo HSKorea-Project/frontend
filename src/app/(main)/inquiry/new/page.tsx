@@ -7,9 +7,12 @@ import Agreement from "./_components/Agreement";
 import Inquiry from "./_components/Inquiry";
 import Customer from "./_components/Customer";
 import { QuoteForm } from "../_types/quote";
+import { useModalStore } from "@/stores/modalStore";
 
 // 견적문의 페이지
 export default function QuoteInquiryPage() {
+  const { openModal } = useModalStore();
+
   // 폼 값 전체 관리
   const [form, setForm] = useState<QuoteForm>({
     clientCompany: "",
@@ -69,8 +72,14 @@ export default function QuoteInquiryPage() {
       return;
     }
 
-    // 정상 제출
-    console.log("제출 완료");
+    // 제출 확인 모달
+    openModal({
+      type: "confirm",
+      onConfirm: () => {
+        // 정상 제출
+        console.log("제출 완료");
+      },
+    });
   };
 
   return (
