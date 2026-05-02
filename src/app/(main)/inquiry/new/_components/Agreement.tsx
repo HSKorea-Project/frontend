@@ -7,6 +7,7 @@ import CheckBox from "@/components/ui/CheckBox/CheckBox";
 import { SetStateAction } from "react";
 import { QuoteForm } from "../../_types/quote";
 import ConfirmIcon from "@/assets/svgs/confirm.svg";
+import { useModalStore } from "@/stores/modalStore";
 
 // Agreement Props 타입 정의
 interface AgreementProps {
@@ -16,6 +17,8 @@ interface AgreementProps {
 
 // '약관 동의' 섹션 컴포넌트
 export default function Agreement({ form, setForm }: AgreementProps) {
+  const { openModal } = useModalStore();
+
   return (
     <Section title="약관 동의" icon={ConfirmIcon}>
       <div
@@ -36,12 +39,12 @@ export default function Agreement({ form, setForm }: AgreementProps) {
         {/* 약관 동의 박스 */}
         <CheckBox
           checked={form.privacy}
-          onClick={() =>
+          onClick={() => {
             setForm((prev) => ({
               ...prev,
               privacy: !form.privacy,
-            }))
-          }
+            }));
+          }}
         />
         <p
           className={css({
@@ -52,17 +55,22 @@ export default function Agreement({ form, setForm }: AgreementProps) {
         >
           개인정보 수집 및 이용에 동의합니다.
         </p>
-        <p
+        <button
           className={css({
             color: "orange.500",
             textDecoration: "underline",
             fontSize: "12px",
             cursor: "pointer",
-            // 상세 약관 동의 내용 추가 예정
           })}
+          onClick={(e) => {
+            e.preventDefault();
+            openModal({
+              type: "privacy",
+            });
+          }}
         >
           [상세보기]
-        </p>
+        </button>
       </div>
 
       {/* 구분선 */}
