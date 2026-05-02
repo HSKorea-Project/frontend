@@ -61,6 +61,8 @@ export default function Drawer({ open, onClose }: DrawerProps) {
         >
           {/* 닫힘 버튼 */}
           <button
+            type="button"
+            aria-label="사이드바 닫기"
             onClick={onClose}
             className={css({
               cursor: "pointer",
