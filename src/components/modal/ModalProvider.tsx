@@ -3,7 +3,7 @@
 import { createPortal } from "react-dom";
 import { useModalStore } from "@/stores/modalStore";
 import ConfirmModal from "./ConfirmModal";
-import PrivacyModal from "./PrivacyModal";
+import PrivacyModal from "./privacy/PrivacyModal";
 
 export default function ModalProvider() {
   const { isOpen, modal } = useModalStore();
