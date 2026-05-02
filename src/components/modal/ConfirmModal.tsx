@@ -20,13 +20,19 @@ export default function ConfirmModal({ modal }: ConfirmModalProps) {
   const { closeModal } = useModalStore();
 
   const handleCancel = () => {
-    modal.onCancel?.();
-    closeModal();
+    try {
+      modal.onCancel?.();
+    } finally {
+      closeModal();
+    }
   };
 
   const handleConfirm = () => {
-    modal.onConfirm?.();
-    closeModal();
+    try {
+      modal.onConfirm?.();
+    } finally {
+      closeModal();
+    }
   };
 
   return (
