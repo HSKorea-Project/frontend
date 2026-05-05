@@ -28,6 +28,9 @@ export default function InquiryTableRow({ item }: InquiryTableRowProps) {
       onClick={() => handleClick(item.id)}
       className={css({
         cursor: "pointer",
+        borderBottomWidth: "1px",
+        borderBottomStyle: "solid",
+        borderBottomColor: "gray.200",
         _hover: {
           bg: "orange.50",
         },
