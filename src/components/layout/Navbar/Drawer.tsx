@@ -55,19 +55,25 @@ export default function Drawer({ open, onClose }: DrawerProps) {
             alignItems: "center",
             borderBottom: "solid 1px",
             borderColor: "gray.100",
-            p: "12px",
+            height: "46px",
+            p: "8px",
           })}
         >
           {/* 닫힘 버튼 */}
           <button
+            type="button"
+            aria-label="사이드바 닫기"
             onClick={onClose}
             className={css({
               cursor: "pointer",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
               width: "32px",
               height: "32px",
             })}
           >
-            <CloseIcon />
+            <CloseIcon className={css({ width: "16px", height: "16px" })} />
           </button>
         </div>
 
