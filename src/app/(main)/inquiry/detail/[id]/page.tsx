@@ -6,9 +6,12 @@ import Customer from "@/app/(main)/inquiry/detail/[id]/_components/Customer";
 import Button from "@/components/ui/Button/Button";
 import { useParams, useRouter } from "next/navigation";
 import { inquiryDetailMockData } from "@/constants/mocks/inquiryDetailMockData";
+import { useModalStore } from "@/stores/modalStore";
 
 // 견적문의 상세 페이지
 export default function InquiryDetailPage() {
+  const { openModal } = useModalStore();
+
   const params = useParams();
   const router = useRouter();
 
@@ -120,7 +123,19 @@ export default function InquiryDetailPage() {
               })}
             >
               <Button variant="primary">수정하기</Button>
-              <Button variant="outline">삭제하기</Button>
+              <Button
+                variant="outline"
+                onClick={() =>
+                  openModal({
+                    type: "delete",
+                    onConfirm: () => {
+                      // 삭제 로직 구현
+                    },
+                  })
+                }
+              >
+                삭제하기
+              </Button>
             </div>
 
             <Button
