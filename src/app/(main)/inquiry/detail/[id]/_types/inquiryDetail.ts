@@ -18,7 +18,7 @@ export const IncludeStateBadgeType: Record<IncludeState, "primary" | "gray"> = {
 
 // 문의 상세 내역 타입 정의
 export interface InquiryDetailItem {
-  inquiryId: number; // 문의 번호
+  inquiryId: string; // 문의 번호(UUID)
   companyName: string; // 고객사명
   customerName: string; // 고객명
   phone: string; // 연락처

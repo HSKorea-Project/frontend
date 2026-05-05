@@ -12,7 +12,7 @@ export default function InquiryDetailPage() {
   const params = useParams();
   const router = useRouter();
 
-  const inquiryId = Number(params.id);
+  const inquiryId = String(params.id);
 
   const detail = inquiryDetailMockData.find((item) => item.inquiryId === inquiryId);
 

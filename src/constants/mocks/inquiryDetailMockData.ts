@@ -3,7 +3,7 @@ import { InquiryDetailItem } from "@/app/(main)/inquiry/detail/[id]/_types/inqui
 // 문의 상세내역 목데이터
 export const inquiryDetailMockData: InquiryDetailItem[] = [
   {
-    inquiryId: 181,
+    inquiryId: "181",
     companyName: "한국대학교",
     customerName: "김지훈",
     phone: "010-1234-5678",
@@ -22,7 +22,7 @@ export const inquiryDetailMockData: InquiryDetailItem[] = [
       "학교 실험실 이전 관련하여 견적 문의드립니다.\n정밀 기자재가 포함되어 있어 특수 포장 처리가 필요합니다.",
   },
   {
-    inquiryId: 182,
+    inquiryId: "182",
     companyName: "서울성모병원",
     customerName: "이수연",
     phone: "010-2345-6789",
@@ -41,7 +41,7 @@ export const inquiryDetailMockData: InquiryDetailItem[] = [
       "병원 장비 및 사무 집기 이전 견적을 요청드립니다.\n의료기기 운반 시 파손 방지를 위한 별도 포장이 필요합니다.",
   },
   {
-    inquiryId: 183,
+    inquiryId: "183",
     companyName: "GS리테일",
     customerName: "박민준",
     phone: "010-3456-7890",
@@ -60,7 +60,7 @@ export const inquiryDetailMockData: InquiryDetailItem[] = [
       "사무실 이전 견적 문의드립니다.\n책상, 의자, 회의실 장비와 일부 폐기물 처리가 포함되어 있습니다.",
   },
   {
-    inquiryId: 184,
+    inquiryId: "184",
     companyName: "현대물류",
     customerName: "최영호",
     phone: "010-4567-8901",
@@ -79,7 +79,7 @@ export const inquiryDetailMockData: InquiryDetailItem[] = [
       "물류창고 내 보관 장비 및 적재 선반 이전 문의입니다.\n대형 장비가 포함되어 사전 현장 확인이 필요합니다.",
   },
   {
-    inquiryId: 185,
+    inquiryId: "185",
     companyName: "연세대학교",
     customerName: "정다은",
     phone: "010-5678-9012",
@@ -98,7 +98,7 @@ export const inquiryDetailMockData: InquiryDetailItem[] = [
       "강의실 집기와 연구실 장비 이전 견적을 요청드립니다.\n일부 노후 집기는 폐기물 처리가 필요합니다.",
   },
   {
-    inquiryId: 186,
+    inquiryId: "186",
     companyName: "LG화학 연구소",
     customerName: "강태웅",
     phone: "010-6789-0123",
@@ -117,7 +117,7 @@ export const inquiryDetailMockData: InquiryDetailItem[] = [
       "연구소 실험 장비 이전 견적 문의드립니다.\n온도와 충격에 민감한 장비가 포함되어 전문 포장이 필요합니다.",
   },
   {
-    inquiryId: 187,
+    inquiryId: "187",
     companyName: "HSKorea",
     customerName: "김민서",
     phone: "010-7890-1234",
@@ -136,7 +136,7 @@ export const inquiryDetailMockData: InquiryDetailItem[] = [
       "소규모 사무실 이전 견적 문의입니다.\n책상, 의자, PC, 복합기 이전과 에어컨 이전 설치가 필요합니다.",
   },
   {
-    inquiryId: 188,
+    inquiryId: "188",
     companyName: "삼성SDI",
     customerName: "윤재원",
     phone: "010-8901-2345",
@@ -155,7 +155,7 @@ export const inquiryDetailMockData: InquiryDetailItem[] = [
       "공장 설비 일부 이전 견적을 요청드립니다.\n중량 설비가 포함되어 장비 운송 가능 여부 확인 부탁드립니다.",
   },
   {
-    inquiryId: 189,
+    inquiryId: "189",
     companyName: "마켓컬리",
     customerName: "오지은",
     phone: "010-9012-3456",
@@ -174,7 +174,7 @@ export const inquiryDetailMockData: InquiryDetailItem[] = [
       "냉장 물류창고 이전 관련 견적 문의드립니다.\n보관 제품 이동 시간과 온도 유지 가능 여부를 확인하고 싶습니다.",
   },
   {
-    inquiryId: 190,
+    inquiryId: "190",
     companyName: "카카오",
     customerName: "신동현",
     phone: "010-1122-3344",
@@ -193,7 +193,7 @@ export const inquiryDetailMockData: InquiryDetailItem[] = [
       "오피스 이전 견적 문의드립니다.\n임직원 좌석 집기와 회의실 장비, 일부 폐기물 처리가 포함됩니다.",
   },
   {
-    inquiryId: 191,
+    inquiryId: "191",
     companyName: "네이버",
     customerName: "이현우",
     phone: "010-2233-4455",
@@ -212,7 +212,7 @@ export const inquiryDetailMockData: InquiryDetailItem[] = [
       "사무공간 확장 이전으로 견적 문의드립니다.\nIT 장비와 서버랙 일부가 포함되어 안전 운송이 필요합니다.",
   },
   {
-    inquiryId: 192,
+    inquiryId: "192",
     companyName: "쿠팡",
     customerName: "박서준",
     phone: "010-3344-5566",
@@ -231,7 +231,7 @@ export const inquiryDetailMockData: InquiryDetailItem[] = [
       "물류창고 이전 및 적재 장비 이동 견적 요청드립니다.\n주말 작업 가능 여부도 함께 확인 부탁드립니다.",
   },
   {
-    inquiryId: 193,
+    inquiryId: "193",
     companyName: "롯데마트",
     customerName: "정유진",
     phone: "010-4455-6677",
@@ -250,7 +250,7 @@ export const inquiryDetailMockData: InquiryDetailItem[] = [
       "창고 집기 및 일부 재고 이동 문의입니다.\n폐기 예정 진열대 처리가 가능한지도 확인 부탁드립니다.",
   },
   {
-    inquiryId: 194,
+    inquiryId: "194",
     companyName: "CJ대한통운",
     customerName: "김성훈",
     phone: "010-5566-7788",
@@ -269,7 +269,7 @@ export const inquiryDetailMockData: InquiryDetailItem[] = [
       "물류센터 내 장비 및 선반 이전 견적을 요청드립니다.\n지게차 사용 가능 여부와 작업 소요 시간도 알고 싶습니다.",
   },
   {
-    inquiryId: 195,
+    inquiryId: "195",
     companyName: "포스코",
     customerName: "이정민",
     phone: "010-6677-8899",
@@ -288,7 +288,7 @@ export const inquiryDetailMockData: InquiryDetailItem[] = [
       "공장 설비 이전 관련 견적 문의드립니다.\n대형 설비와 폐기 대상 자재가 함께 포함되어 있습니다.",
   },
   {
-    inquiryId: 196,
+    inquiryId: "196",
     companyName: "한화",
     customerName: "최지훈",
     phone: "010-7788-9900",
@@ -307,7 +307,7 @@ export const inquiryDetailMockData: InquiryDetailItem[] = [
       "생산라인 일부 이전 견적 문의드립니다.\n에어컨 이전 설치와 작업 일정 조율이 필요합니다.",
   },
   {
-    inquiryId: 197,
+    inquiryId: "197",
     companyName: "SK하이닉스",
     customerName: "박지훈",
     phone: "010-8899-0011",
@@ -326,7 +326,7 @@ export const inquiryDetailMockData: InquiryDetailItem[] = [
       "반도체 생산 장비 이전 견적 문의드립니다.\n진동과 습도 관리가 필요한 장비가 포함되어 있습니다.",
   },
   {
-    inquiryId: 198,
+    inquiryId: "198",
     companyName: "아모레퍼시픽",
     customerName: "김하늘",
     phone: "010-9900-1122",
