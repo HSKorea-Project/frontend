@@ -32,8 +32,9 @@ export default function Navbar({ className }: NavbarProps) {
               base: "8px",
               lg: "16px",
             },
-            borderBottom: "1px solid",
-            borderColor: "gray.200",
+            borderBottomWidth: "1px",
+            borderBottomStyle: "solid",
+            borderBottomColor: "gray.200",
             bg: "white",
           }),
           className
